@@ -1,0 +1,12 @@
+streamlit
+pandas
+numpy
+scikit-learn
+nltk
+sentence-transformers
+plotly
+vaderSentiment
+faster-whisper
+SpeechRecognition
+pytest
+

@@ -1,0 +1,1026 @@
+[
+  {
+    "question_id": "HR001",
+    "category": "HR",
+    "question": "Tell me about yourself and why you are interested in this position.",
+    "reference_answer": "I am a final-year Computer Science Engineering student specializing in software development and machine learning. Throughout my degree, I have built strong foundations in data structures, algorithms, and backend systems. For my major capstone project, I developed an automated interview evaluation system using Python and NLP, which sharpened my practical skills in API design and applied AI. During my summer internship at a software consultancy, I contributed to building scalable REST APIs and collaborated with cross-functional teams in agile sprints. I am drawn to this position because it aligns with my passion for building data-driven software products, and I am eager to apply my problem-solving skills to contribute to your engineering team's high-impact projects.",
+    "expected_keywords": ["background", "education", "skills", "projects", "internship", "career goals", "motivation", "alignment", "experience"],
+    "key_points": [
+      "Professional and academic background summary",
+      "Relevant technical skills and projects",
+      "Reason for interest in this specific role and company",
+      "Alignment between candidate goals and company mission"
+    ],
+    "essential_key_points": [
+      "Academic or professional background summary",
+      "Relevant technical skills and project or practical experience",
+      "Specific motivation and alignment with the role"
+    ],
+    "supporting_key_points": [
+      "Mention of major capstone project, internship, or hackathon achievements",
+      "Long-term career aspirations and value brought to the team"
+    ],
+    "optional_key_points": [
+      "Specific metrics or project outcomes",
+      "Knowledge of company culture and tech stack"
+    ],
+    "concept_synonyms": {
+      "Academic or professional background summary": [
+        "bachelor", "b.tech", "b.e", "computer science", "engineering student", "final year", "third year", "graduate", "background", "experience", "education", "undergraduate"
+      ],
+      "Relevant technical skills and project or practical experience": [
+        "skills", "projects", "capstone", "mini-project", "internship", "developed", "built", "implemented", "python", "full stack", "backend", "machine learning", "dsa", "technologies"
+      ],
+      "Specific motivation and alignment with the role": [
+        "interested in this position", "drawn to this role", "aligns with my career goals", "excited to join", "contribute to", "growth", "opportunity", "passion", "mission"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Campus placements & entry-level engineering roles",
+        "focus": "Degree, major capstone project, technical stack, internship or hackathon experience, eagerness to start career.",
+        "valid_evidence": ["Major capstone project", "Summer internship", "Technical certifications", "Competitive programming", "Hackathon projects"]
+      },
+      "ty_student": {
+        "context": "Internship search & foundational technical readiness",
+        "focus": "Coursework fundamentals, academic mini-projects, learning agility, curiosity.",
+        "valid_evidence": ["Academic mini-projects", "Coursework assignments", "Self-learning", "Coding clubs"]
+      },
+      "experienced": {
+        "context": "Lateral hiring & industry roles",
+        "focus": "Professional work history, production systems, business impact, architectural contributions.",
+        "valid_evidence": ["Prior employer experience", "Production systems", "Leadership", "Business metrics"]
+      }
+    },
+    "common_misconceptions": [
+      "Sharing entire life story instead of professional summary",
+      "Failing to connect background to the role",
+      "Being overly generic without specifics"
+    ],
+    "misconception_patterns": {
+      "life_story": ["born in", "grew up in", "childhood", "schooling from"],
+      "no_connection": ["just need any job", "no idea about the company"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["clarity", "relevance", "conciseness", "enthusiasm", "project evidence"]
+  },
+  {
+    "question_id": "HR002",
+    "category": "HR",
+    "question": "What are your greatest strengths?",
+    "reference_answer": "One of my greatest strengths is analytical problem solving. During my final-year project, when our database queries caused latency spikes, I profiled the execution bottlenecks and implemented optimized indexing and caching, reducing response times by 40%. Another key strength is adaptability and fast learning. When our hackathon team needed an authentication module using OAuth2 within 24 hours, I picked up the documentation, implemented the flow, and integrated it cleanly. Furthermore, I communicate effectively within technical teams, whether presenting project architectures to faculty or writing modular, well-documented code for peer reviews.",
+    "expected_keywords": ["problem solving", "analytical", "adaptability", "quick learner", "communication", "teamwork", "technical skills", "proactive", "consistency"],
+    "key_points": [
+      "Identify specific strengths relevant to the role",
+      "Provide concrete examples or evidence",
+      "Demonstrate self-awareness and practical impact"
+    ],
+    "essential_key_points": [
+      "Identify specific, relevant technical or professional strengths",
+      "Provide concrete examples from projects, coursework, or internships"
+    ],
+    "supporting_key_points": [
+      "Demonstrate how these strengths create value or resolve challenges",
+      "Show a proactive attitude and adaptability"
+    ],
+    "optional_key_points": [
+      "Quantifiable project impact or measurable metrics",
+      "Connection to the target company's engineering needs"
+    ],
+    "concept_synonyms": {
+      "Identify specific, relevant technical or professional strengths": [
+        "strength", "strengths", "problem solving", "analytical", "quick learner", "fast learner", "adaptability", "communication", "team player", "debugging", "consistency", "disciplined"
+      ],
+      "Provide concrete examples from projects, coursework, or internships": [
+        "for example", "in my project", "during my capstone", "in my internship", "in our hackathon", "when working on", "demonstrated this when", "instance", "implemented"
+      ],
+      "Demonstrate how these strengths create value or resolve challenges": [
+        "helped the team", "resolved the issue", "improved performance", "delivered on time", "reduced latency", "contribute to", "efficient"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Entry-level engineer readiness",
+        "focus": "Algorithmic thinking, project problem solving, rapid adoption of new tech stacks, peer collaboration.",
+        "valid_evidence": ["Capstone project optimization", "Hackathon sprint execution", "Internship deliverables"]
+      },
+      "ty_student": {
+        "context": "Third-year engineering fundamentals",
+        "focus": "Grasping complex technical topics quickly, academic consistency, lab collaboration.",
+        "valid_evidence": ["Coursework performance", "Mini-project troubleshooting", "Online coding platforms"]
+      },
+      "experienced": {
+        "context": "Professional engineering impact",
+        "focus": "System architecture, stakeholder communication, cross-functional leadership, mentoring.",
+        "valid_evidence": ["Production reliability", "Cross-team delivery", "Mentorship"]
+      }
+    },
+    "common_misconceptions": [
+      "Listing strengths without supporting examples",
+      "Claiming perfection or being unrealistically positive",
+      "Mentioning strengths irrelevant to the job"
+    ],
+    "misconception_patterns": {
+      "unsupported_claims": ["i have no flaws", "i am good at everything", "perfectionist without fault"],
+      "irrelevant": ["good at gaming", "cooking"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["specificity", "self-awareness", "relevance", "supporting evidence"]
+  },
+  {
+    "question_id": "HR003",
+    "category": "HR",
+    "question": "What is your greatest weakness?",
+    "reference_answer": "My greatest weakness has been a tendency to spend too much time over-optimizing code before seeking feedback. In earlier academic projects, I would spend days refactoring minor routines instead of delivering a working prototype first. I realized this was delaying project milestones. To address this, I adopted agile time-boxing: I now set strict time limits for initial implementations and share work-in-progress pull requests with my teammates or project guide. This ensures I get early constructive feedback, prioritize functionality, and avoid premature optimization.",
+    "expected_keywords": ["weakness", "self-awareness", "improvement", "growth", "steps taken", "learning", "time management", "feedback"],
+    "key_points": [
+      "Identify a genuine weakness",
+      "Show self-awareness and honesty",
+      "Describe concrete steps taken to improve",
+      "Demonstrate growth or progress"
+    ],
+    "essential_key_points": [
+      "Identify a genuine, non-fatal professional or academic weakness",
+      "Describe concrete proactive steps taken to overcome or manage it"
+    ],
+    "supporting_key_points": [
+      "Demonstrate self-awareness and honesty without defensiveness",
+      "Show tangible progress or positive habits developed"
+    ],
+    "optional_key_points": [
+      "Reflect on how overcoming this makes you a more dependable engineer",
+      "Relate to collaborative development workflows"
+    ],
+    "concept_synonyms": {
+      "Identify a genuine, non-fatal professional or academic weakness": [
+        "weakness", "struggle with", "tendency to", "used to", "area for improvement", "perfectionism", "over-optimizing", "public speaking", "delegating", "asking for help late", "hesitant"
+      ],
+      "Describe concrete proactive steps taken to overcome or manage it": [
+        "steps taken", "to improve", "i now", "adopted", "practice", "time-box", "time management", "asking for feedback", "working on it", "checklist", "actively trying"
+      ],
+      "Demonstrate growth or progress": [
+        "improved", "better now", "progress", "learned to", "helped me", "more productive", "positive result"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Transition from student to professional engineer",
+        "focus": "Honest self-assessment regarding time management, delegating in project teams, or asking for help sooner.",
+        "valid_evidence": ["Adopting time-boxing", "Using git branches for early feedback", "Seeking guide reviews earlier"]
+      },
+      "ty_student": {
+        "context": "Early engineering learning curve",
+        "focus": "Overcoming initial shyness in asking doubts, balancing multiple subjects/assignments.",
+        "valid_evidence": ["Seeking mentor guidance", "Using task trackers", "Collaborative study groups"]
+      },
+      "experienced": {
+        "context": "Senior engineering maturity",
+        "focus": "Delegation, strategic focus over tactical firefighting, saying no to scope creep.",
+        "valid_evidence": ["Delegating to junior devs", "Setting clear SLA boundaries"]
+      }
+    },
+    "common_misconceptions": [
+      "Disguising a strength as a weakness",
+      "Claiming to have no weaknesses",
+      "Mentioning a critical weakness without a plan to address it"
+    ],
+    "misconception_patterns": {
+      "fake_weakness": ["i work too hard", "i care too much", "perfectionist who never stops", "no weakness", "dont have any weakness"],
+      "fatal_weakness": ["cannot work with people", "hate coding", "miss deadlines always"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["honesty", "self-awareness", "improvement plan", "maturity"]
+  },
+  {
+    "question_id": "HR004",
+    "category": "HR",
+    "question": "Where do you see yourself in five years?",
+    "reference_answer": "In five years, I see myself having evolved into a skilled, high-impact Software Development Engineer. In the initial two years, my focus will be on mastering your tech stack, writing robust production code, and understanding the end-to-end product architecture. As I gain domain experience, I aspire to take ownership of complex technical modules, contribute to system design decisions, and mentor junior campus recruits. I also aim to deepen my expertise in cloud technologies and distributed data systems. This aligns with your company's emphasis on engineering excellence and internal learning opportunities.",
+    "expected_keywords": ["growth", "career goals", "technical depth", "mentoring", "ownership", "system design", "long-term vision", "alignment"],
+    "key_points": [
+      "Articulate a clear career trajectory",
+      "Show ambition balanced with realism",
+      "Demonstrate alignment with the company's growth opportunities",
+      "Include both technical and professional development goals"
+    ],
+    "essential_key_points": [
+      "Articulate a realistic and progressive career trajectory",
+      "Express technical learning and skill-deepening goals",
+      "Show alignment with the company's engineering ecosystem"
+    ],
+    "supporting_key_points": [
+      "Desire to take feature ownership or system design responsibilities",
+      "Aspiration to mentor newer engineers or contribute to team success"
+    ],
+    "optional_key_points": [
+      "Targeting specific technical domains (cloud, AI, microservices)",
+      "Continuous professional certifications or architecture competencies"
+    ],
+    "concept_synonyms": {
+      "Articulate a realistic and progressive career trajectory": [
+        "in five years", "career trajectory", "senior engineer", "sde 2", "lead", "grow into", "progress", "step by step", "evolve", "future"
+      ],
+      "Express technical learning and skill-deepening goals": [
+        "technical depth", "mastering", "deepen expertise", "learn", "cloud", "architecture", "system design", "best practices", "clean code", "distributed systems"
+      ],
+      "Show alignment with the company's engineering ecosystem": [
+        "contribute to your company", "aligns with company", "long term", "value to team", "growth opportunity", "environment", "your tech stack", "mastering your", "within your", "engineering team", "company's focus"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Campus placement career roadmap",
+        "focus": "Transition from graduate trainee/junior SDE to independent contributor and module owner.",
+        "valid_evidence": ["Learning production best practices", "Taking module ownership", "Mentoring subsequent freshers"]
+      },
+      "ty_student": {
+        "context": "Early engineering vision",
+        "focus": "Completing degree with strong fundamentals, converting internships to full-time engineering mastery.",
+        "valid_evidence": ["Mastering foundational technologies", "Transitioning into full-time roles"]
+      },
+      "experienced": {
+        "context": "Mid-to-senior career roadmap",
+        "focus": "Staff engineer, principal architect, or engineering manager tracks.",
+        "valid_evidence": ["Architectural leadership", "Cross-team impact", "Driving engineering strategy"]
+      }
+    },
+    "common_misconceptions": [
+      "Saying you want to be in a completely different field",
+      "Being vague or saying you have not thought about it",
+      "Giving an answer that implies the role is just a stepping stone"
+    ],
+    "misconception_patterns": {
+      "unrelated_field": ["switch to mba immediately", "leave for civil services in 1 year", "start my own unrelated business"],
+      "aimless": ["haven't thought", "no idea", "wherever life takes me"],
+      "unrealistic": ["ceo of your company in two years", "vp of engineering in one year"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["ambition", "realism", "alignment", "specificity"]
+  },
+  {
+    "question_id": "HR005",
+    "category": "HR",
+    "question": "Why are you leaving your current job?",
+    "reference_answer": "As a final-year student, I am completing my undergraduate engineering degree and preparing to transition into my first full-time software engineering role. While my academic coursework and internship gave me solid fundamentals in backend development and machine learning, I am eager to work on large-scale production systems and collaborate with experienced engineers. I am particularly excited about your company because of your commitment to engineering rigor and the opportunity to work directly on high-performance distributed applications.",
+    "expected_keywords": ["growth", "graduation", "career launch", "new challenges", "learning", "opportunity", "transition", "alignment", "positive framing"],
+    "key_points": [
+      "Provide a professional and positive reason",
+      "Avoid speaking negatively about the current employer or institution",
+      "Highlight what you are moving toward rather than away from",
+      "Connect the reason to the new opportunity"
+    ],
+    "essential_key_points": [
+      "Provide a positive, forward-looking rationale (graduation, seeking technical challenge, career growth)",
+      "Maintain respectful professionalism without disparaging past institutions or employers",
+      "Connect the transition clearly to what this role and company offer"
+    ],
+    "supporting_key_points": [
+      "Acknowledge learnings gained from academic projects, internships, or prior roles",
+      "Articulate excitement for full-scale production engineering"
+    ],
+    "optional_key_points": [
+      "Specific domain interest matching company's core products",
+      "Readiness for full-time responsibility"
+    ],
+    "concept_synonyms": {
+      "Provide a positive, forward-looking rationale (graduation, seeking technical challenge, career growth)": [
+        "graduating", "campus placement", "completing my degree", "starting my career", "transition from college", "internship ended", "seeking new challenge", "growth opportunity", "moving toward", "next step", "career transition"
+      ],
+      "Maintain respectful professionalism without disparaging past institutions or employers": [
+        "learned a great deal", "grateful for", "positive experience", "valuable fundamentals", "enjoyed my time", "built strong foundation"
+      ],
+      "Connect the transition clearly to what this role and company offer": [
+        "drawn to this position", "excited about your tech stack", "scalable systems", "mentor guidance", "high-impact", "opportunity here"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "College graduation & campus placement transition",
+        "focus": "Transitioning from university / internship to full-time software development; seeking production engineering scale and mentorship.",
+        "valid_evidence": ["Graduating B.Tech / BE", "Completing summer internship", "Ready for full-time corporate engineering"]
+      },
+      "ty_student": {
+        "context": "Internship search & pre-final year preparation",
+        "focus": "Seeking practical industry exposure alongside degree studies.",
+        "valid_evidence": ["Seeking summer internship", "Bridging theoretical knowledge with practical code"]
+      },
+      "experienced": {
+        "context": "Industry job change",
+        "focus": "Seeking greater technical scope, modern architecture, or organizational impact.",
+        "valid_evidence": ["Scaling challenges", "Desire for modern tech stack", "Career development"]
+      }
+    },
+    "common_misconceptions": [
+      "Badmouthing the current employer, college, or manager",
+      "Citing only salary as the motivation",
+      "Giving a vague or evasive answer"
+    ],
+    "misconception_patterns": {
+      "badmouthing": ["hate my college", "terrible manager", "toxic team", "professors were bad", "hated my previous company"],
+      "money_only": ["only for higher salary", "they didn't pay me enough", "just want more cash"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["professionalism", "positivity", "clarity", "forward-looking perspective"]
+  },
+  {
+    "question_id": "BEH001",
+    "category": "Behavioral",
+    "question": "Tell me about a time you worked effectively as part of a team.",
+    "reference_answer": "Situation: In our final-year engineering capstone project, our four-member team was tasked with building an AI-based healthcare diagnostic portal within a tight three-month deadline. Task: As the backend lead, my responsibility was to design the REST APIs, integrate the ML inference pipeline, and ensure clean data interchange with the frontend team. Action: I set up a shared GitHub repository with branch protection rules and organized bi-weekly sprint syncs to track API contracts. When our frontend teammate struggled to handle asynchronous image upload responses, I set up a pair-programming session, created mock JSON endpoints, and documented the request-response lifecycle. I also automated backend unit testing using PyTest to catch integration bugs early. Result: We completed the project two weeks ahead of schedule and achieved a 94% test coverage rate. Our project was selected as one of the top three capstone implementations in our department, and our faculty panel praised the smooth integration between components.",
+    "expected_keywords": ["teamwork", "collaboration", "communication", "coordination", "contribution", "shared goal", "support", "pair programming", "capstone", "project"],
+    "key_points": [
+      "Clear situation and context",
+      "Defined individual role within the team",
+      "Specific collaborative actions taken",
+      "Measurable positive outcome",
+      "Use of STAR method structure"
+    ],
+    "essential_key_points": [
+      "Clear situation and project context (capstone, hackathon, lab project, or company migration)",
+      "Defined personal role and responsibilities in the team",
+      "Specific proactive and collaborative actions taken to support teammates",
+      "Tangible and positive result or team achievement"
+    ],
+    "supporting_key_points": [
+      "Communication mechanisms (daily standups, syncs, pair programming, code reviews)",
+      "Resolving technical bottlenecks or interpersonal dependencies",
+      "Use of structured STAR narrative progression"
+    ],
+    "optional_key_points": [
+      "Quantifiable performance improvements (deadline, grade, test coverage, latency)",
+      "Lasting team workflows or templates created"
+    ],
+    "concept_synonyms": {
+      "Clear situation and project context (capstone, hackathon, lab project, or company migration)": [
+        "situation", "final year project", "capstone project", "hackathon team", "group project", "lab assignment", "previous company", "our team", "context", "tasked with"
+      ],
+      "Defined personal role and responsibilities in the team": [
+        "task", "my role", "my responsibility", "responsible for", "i had to", "as the lead", "assigned to", "my goal"
+      ],
+      "Specific proactive and collaborative actions taken to support teammates": [
+        "action", "pair programming", "coordinated", "collaborated", "helped", "organized", "set up", "documented", "resolved", "shared", "supported", "communication"
+      ],
+      "Tangible and positive result or team achievement": [
+        "result", "outcome", "completed ahead of schedule", "delivered on time", "achieved", "won prize", "positive review", "faculty appreciated", "successful"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Capstone projects, hackathons, or internship teams",
+        "focus": "Individual contribution, code integration, resolving dependencies, on-time project completion.",
+        "valid_evidence": ["Final-year capstone project", "Inter-college hackathon", "Internship sprint team", "Open-source contribution"]
+      },
+      "ty_student": {
+        "context": "Mini-projects & coursework lab groups",
+        "focus": "Splitting tasks fairly, learning together, helping teammates debug.",
+        "valid_evidence": ["Semester mini-project", "Database lab team", "Technical club event"]
+      },
+      "experienced": {
+        "context": "Cross-functional engineering teams",
+        "focus": "Cross-service dependencies, mentoring junior devs, stakeholder coordination, production SLA.",
+        "valid_evidence": ["Microservice migration", "Production outage recovery", "Agile sprint coordination"]
+      }
+    },
+    "common_misconceptions": [
+      "Focusing only on individual contribution without mentioning the team",
+      "Describing a team scenario without explaining personal actions",
+      "Providing a vague answer without specific details"
+    ],
+    "misconception_patterns": {
+      "only_i": ["i did everything myself because team was useless", "team did nothing", "sole contributor"],
+      "only_we": ["we just worked together and everything went fine without any plan"]
+    },
+    "uses_star_method": true,
+    "evaluation_criteria": ["STAR structure", "teamwork evidence", "specificity", "outcome clarity"]
+  },
+  {
+    "question_id": "BEH002",
+    "category": "Behavioral",
+    "question": "Describe a situation where you demonstrated leadership.",
+    "reference_answer": "Situation: During our college annual 24-hour hackathon, our four-member team encountered a major roadblock six hours before submission when our primary database service crashed and corrupted our schema. Team morale dropped, and two members considered giving up. Task: Although I was not the designated team leader, I knew we had invested significant effort and had a viable product concept. I stepped up to rally the team, re-architect the storage layer, and deliver a functioning demo. Action: I immediately called a 5-minute timeout, calmed everyone down, and proposed switching to an in-memory SQLite fallback with JSON fixtures. I divided the remaining tasks into three parallel tracks: one member worked on frontend UI polish, another built mock API responses, while I rewrote the persistence layer and migration script. I kept track of remaining time on a whiteboard and conducted quick 15-minute syncs. Result: We restored full end-to-end functionality with two hours to spare and presented a flawless live demo to the judges. Our team secured second place among 45 participating colleges, and my teammates credited my calm intervention as the turning point for our comeback.",
+    "expected_keywords": ["leadership", "initiative", "responsibility", "decision making", "motivation", "communication", "coordination", "resilience", "problem solving"],
+    "key_points": [
+      "Clear leadership challenge or opportunity",
+      "Proactive initiative and decision-making",
+      "Actions that influenced or motivated others",
+      "Tangible positive result"
+    ],
+    "essential_key_points": [
+      "Clear challenge, setback, or initiative where leadership was needed",
+      "Proactive initiative and constructive decision-making without waiting for orders",
+      "Actions taken to coordinate, guide, or motivate peers",
+      "Tangible positive outcome and lesson learned"
+    ],
+    "supporting_key_points": [
+      "Emotional intelligence, calming panic or resolving confusion",
+      "Clear division of responsibilities based on strengths",
+      "Structured STAR narrative progression"
+    ],
+    "optional_key_points": [
+      "Recognition from faculty, competition judges, or team members",
+      "Long-term confidence built in the team"
+    ],
+    "concept_synonyms": {
+      "Clear challenge, setback, or initiative where leadership was needed": [
+        "situation", "challenge", "roadblock", "crisis", "stepping up", "hackathon", "capstone", "project team", "deadline pressure", "leader left"
+      ],
+      "Proactive initiative and constructive decision-making without waiting for orders": [
+        "task", "action", "i took initiative", "i stepped up", "i decided", "took responsibility", "proposed solution", "decision making", "leadership"
+      ],
+      "Actions taken to coordinate, guide, or motivate peers": [
+        "motivated", "coordinated", "delegated", "divided tasks", "calmed down", "guided", "organized", "communicated", "daily sync"
+      ],
+      "Tangible positive outcome and lesson learned": [
+        "result", "outcome", "won prize", "delivered on time", "successful demo", "commended", "restored functionality", "achieved"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "College hackathons, technical fest coordination, or capstone lead",
+        "focus": "Stepping up during project blockers, guiding teammates through technical hurdles, organizing deliverables.",
+        "valid_evidence": ["Hackathon team coordination", "Capstone project module lead", "Technical workshop organizer", "Peer tutoring"]
+      },
+      "ty_student": {
+        "context": "Lab groups, student chapters, or mini-projects",
+        "focus": "Taking ownership of a difficult module, coordinating assignment deadlines.",
+        "valid_evidence": ["Mini-project team lead", "Coding competition organizer", "Lab session leader"]
+      },
+      "experienced": {
+        "context": "Organizational leadership & team management",
+        "focus": "Leading feature initiatives, managing crisis response, mentoring junior engineers.",
+        "valid_evidence": ["Tech lead role", "Incident commander", "Cross-team architectural initiative"]
+      }
+    },
+    "common_misconceptions": [
+      "Equating leadership only with having a formal title",
+      "Describing authority without collaborative influence",
+      "Failing to show impact on the team or outcome"
+    ],
+    "misconception_patterns": {
+      "autocratic": ["i commanded them", "i forced them to do my way", "i bossed everyone around"],
+      "title_only": ["i was leader because professor made me leader so i just watched"]
+    },
+    "uses_star_method": true,
+    "evaluation_criteria": ["STAR structure", "leadership evidence", "initiative", "impact"]
+  },
+  {
+    "question_id": "BEH003",
+    "category": "Behavioral",
+    "question": "Tell me about a time you handled a conflict at work.",
+    "reference_answer": "Situation: During the development of our final-year project, our team had a serious technical disagreement regarding the database architecture. My teammate advocated for MongoDB citing rapid prototyping speed, while I proposed PostgreSQL because our application required strict relational data consistency and complex joins. The debate began stalling our sprint progress. Task: My goal was to resolve the disagreement objectively without alienating my teammate, choose the optimal architecture for our project requirements, and maintain team harmony. Action: Rather than arguing subjectively, I suggested we evaluate both options against three objective criteria: query access patterns, ACID transactional requirements, and team familiarity. I set up a quick 1-hour benchmarking test using our actual sample schema and query load. In our discussion, I actively listened to my teammate's concerns about schema flexibility and acknowledged that unstructured profile data would indeed be cumbersome in standard SQL. Result: We agreed on a pragmatic hybrid solution: PostgreSQL as our primary relational store, utilizing its native JSONB support for semi-structured fields. This satisfied both requirements, kept our project on schedule, and strengthened our mutual respect. Our project guide later praised the technical justification in our documentation.",
+    "expected_keywords": ["conflict resolution", "communication", "compromise", "active listening", "collaboration", "technical discussion", "objective", "consensus", "empathy"],
+    "key_points": [
+      "Clear description of the conflict",
+      "Constructive approach to resolution",
+      "Active listening and empathy demonstrated",
+      "Mutually beneficial outcome"
+    ],
+    "essential_key_points": [
+      "Clear description of a professional or technical disagreement",
+      "Constructive, mature approach to resolution without personal attacks",
+      "Demonstrated active listening, empathy, and objective evaluation",
+      "Mutually agreeable and beneficial outcome that preserved working relationships"
+    ],
+    "supporting_key_points": [
+      "Using objective criteria, benchmarks, or documentation to settle debates",
+      "Finding a balanced compromise or win-win technical solution",
+      "Use of structured STAR narrative progression"
+    ],
+    "optional_key_points": [
+      "Positive long-term impact on team communication",
+      "Commendation from mentors or project guides"
+    ],
+    "concept_synonyms": {
+      "Clear description of a professional or technical disagreement": [
+        "situation", "conflict", "disagreement", "disagreed on", "differing opinions", "technical debate", "architecture choice", "database choice", "tech stack"
+      ],
+      "Constructive, mature approach to resolution without personal attacks": [
+        "task", "action", "constructive", "discussed objectively", "one on one", "benchmarking", "evaluated pros and cons", "criteria", "professional"
+      ],
+      "Demonstrated active listening, empathy, and objective evaluation": [
+        "listened", "acknowledged their point", "empathy", "understood their perspective", "open-minded", "active listening"
+      ],
+      "Mutually agreeable and beneficial outcome that preserved working relationships": [
+        "result", "outcome", "compromise", "consensus", "hybrid approach", "stronger relationship", "mutual respect", "on schedule", "resolved"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Capstone team discussions, hackathon tech debates, or internship reviews",
+        "focus": "Resolving tech stack choices, task distribution disagreements, or git conflicts with data and empathy.",
+        "valid_evidence": ["Tech stack debate in capstone", "Task allocation dispute in project", "Code review feedback dispute"]
+      },
+      "ty_student": {
+        "context": "Mini-project group dynamics",
+        "focus": "Addressing differing schedules, communication preferences, or library choices.",
+        "valid_evidence": ["Lab group disagreement", "Mini-project library selection", "Study group consensus"]
+      },
+      "experienced": {
+        "context": "Workplace architectural and cross-team disagreements",
+        "focus": "Balancing business constraints with engineering purity, navigating product vs engineering roadmaps.",
+        "valid_evidence": ["Database migration dispute", "Product manager vs developer scope debate"]
+      }
+    },
+    "common_misconceptions": [
+      "Claiming to never have experienced workplace conflict",
+      "Describing a conflict where you were entirely right and the other person was wrong",
+      "Showing poor conflict management or avoidance"
+    ],
+    "misconception_patterns": {
+      "no_conflict": ["i never have conflicts with anyone", "never had disagreement"],
+      "arrogant_resolution": ["i proved they were completely wrong and made them feel stupid", "i complained to teacher/boss to punish them", "i ignored them and did it anyway"]
+    },
+    "uses_star_method": true,
+    "evaluation_criteria": ["STAR structure", "conflict handling maturity", "empathy", "resolution quality"]
+  },
+  {
+    "question_id": "BEH004",
+    "category": "Behavioral",
+    "question": "Give an example of a time you had to manage a tight deadline.",
+    "reference_answer": "Situation: Two weeks before our university final semester examination, our project evaluation committee advanced our capstone demonstration deadline by ten days. We suddenly had only four days to complete remaining model optimizations, write documentation, and deploy a working web interface. Task: As the project team coordinator, I needed to re-evaluate our backlog, prevent team burnout, and deliver a fully functional, stable release without sacrificing critical features. Action: I immediately called an emergency scoping session. Using the MoSCoW prioritization framework, we categorized our backlog into Must-Haves and Nice-to-Haves. We deferred non-essential UI animations and focused strictly on core model inference speed and report generation. I divided the work into daily deliverable milestones, set up continuous integration with automated linting to catch errors quickly, and took ownership of the model quantization and cloud deployment script. Result: We deployed our working web portal 18 hours before the revised deadline. During the evaluation, our model ran seamlessly with a 150ms inference time, and our faculty panel awarded our project an A+ grade, specifically noting the thorough documentation and production stability.",
+    "expected_keywords": ["deadline", "time management", "prioritization", "planning", "pressure", "delivery", "scope management", "efficiency", "milestones"],
+    "key_points": [
+      "Clear explanation of the deadline pressure",
+      "Strategic prioritization and planning",
+      "Effective execution under pressure",
+      "Successful delivery with measurable outcome"
+    ],
+    "essential_key_points": [
+      "Clear context explaining the tight deadline constraint and stakes",
+      "Strategic prioritization and scope management (must-haves vs nice-to-haves)",
+      "Disciplined execution and time management without compromising fundamental quality",
+      "Successful on-time delivery with measurable positive outcomes"
+    ],
+    "supporting_key_points": [
+      "Breaking large tasks into smaller daily milestones",
+      "Preventing team burnout and communicating status proactively",
+      "Use of structured STAR narrative progression"
+    ],
+    "optional_key_points": [
+      "Reusable scripts, automation, or templates created under pressure",
+      "Specific metrics (hours ahead of schedule, performance benchmark, grade)"
+    ],
+    "concept_synonyms": {
+      "Clear context explaining the tight deadline constraint and stakes": [
+        "situation", "deadline", "tight timeline", "limited time", "hackathon 24 hours", "capstone submission", "short notice", "pressure", "urgent"
+      ],
+      "Strategic prioritization and scope management (must-haves vs nice-to-haves)": [
+        "task", "action", "prioritized", "prioritization", "scoped down", "must have", "core features", "mvp", "cut non-essential", "focused on"
+      ],
+      "Disciplined execution and time management without compromising fundamental quality": [
+        "milestones", "time management", "broke down tasks", "automated", "executed", "daily goals", "discipline", "focused effort"
+      ],
+      "Successful on-time delivery with measurable positive outcomes": [
+        "result", "outcome", "delivered on time", "ahead of deadline", "successful demo", "high grade", "a+", "achieved", "renewed"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Capstone project reviews, hackathon sprints, or internship releases",
+        "focus": "Prioritizing MVP features, automated testing, managing time between exams and project demos.",
+        "valid_evidence": ["Capstone demonstration rush", "Hackathon 24-hr countdown", "Internship sprint deliverable"]
+      },
+      "ty_student": {
+        "context": "Semester assignment submissions and lab evaluations",
+        "focus": "Time-boxing study schedules, dividing mini-project tasks, completing submissions on time.",
+        "valid_evidence": ["Mini-project submission", "Dual exam-project deadlines", "Coding challenge contest"]
+      },
+      "experienced": {
+        "context": "Production releases and enterprise client commitments",
+        "focus": "Negotiating scope with product owners, managing tech debt, preventing outages.",
+        "valid_evidence": ["Client contract deadline", "Compliance deadline", "Critical hotfix release"]
+      }
+    },
+    "common_misconceptions": [
+      "Simply saying you worked overtime without strategic planning",
+      "Claiming to thrive under pressure without showing how",
+      "Describing a deadline that was met by cutting corners on quality"
+    ],
+    "misconception_patterns": {
+      "all_nighter_only": ["i just didn't sleep for three days and had lots of coffee", "i worked 48 hours straight without a plan"],
+      "cut_corners": ["i skipped all tests and delivered buggy code", "i cheated or copied code to finish fast"]
+    },
+    "uses_star_method": true,
+    "evaluation_criteria": ["STAR structure", "time management", "prioritization", "outcome"]
+  },
+  {
+    "question_id": "BEH005",
+    "category": "Behavioral",
+    "question": "Describe a time you received constructive criticism and how you handled it.",
+    "reference_answer": "Situation: During my summer software development internship, my mentor reviewed my first major pull request for an API service. While the endpoints worked correctly, my mentor gave detailed feedback that my code lacked error handling for boundary cases, had minimal unit test coverage, and omitted docstrings. Task: I needed to accept this critique objectively, understand the production standards of professional software development, and build better coding practices. Action: Rather than taking it personally, I thanked my mentor and asked for clarification on company error-handling patterns. I studied their existing codebase to understand standard custom exception classes and logging conventions. I refactored my pull request by adding comprehensive try-except blocks, parameterized unit tests using PyTest, and clear documentation. I also created a personal pre-commit review checklist to verify edge cases and test coverage before submitting any future pull request. Result: My mentor approved the revised pull request within 24 hours, commenting positively on my rapid turnaround and receptiveness. For the remainder of my internship, my pull requests were consistently approved on the first review, and my checklist was shared with other interns during their onboarding.",
+    "expected_keywords": ["feedback", "constructive criticism", "growth", "self-improvement", "receptive", "action plan", "learning", "humility", "code review"],
+    "key_points": [
+      "Openness to receiving feedback",
+      "Understanding the impact of the behavior",
+      "Specific actions taken to improve",
+      "Evidence of growth and positive results"
+    ],
+    "essential_key_points": [
+      "Professional openness and positive reception of constructive feedback",
+      "Deep understanding of why the critique was valid and necessary",
+      "Specific concrete actions and systems adopted to improve",
+      "Verifiable evidence of sustained growth and positive outcomes"
+    ],
+    "supporting_key_points": [
+      "Asking clarifying questions or seeking mentor guidance constructively",
+      "Creating reusable habits (checklists, automated tools, tests)",
+      "Use of structured STAR narrative progression"
+    ],
+    "optional_key_points": [
+      "Sharing improvements with peers or teammates",
+      "Long-term career mindset transformation"
+    ],
+    "concept_synonyms": {
+      "Professional openness and positive reception of constructive feedback": [
+        "situation", "feedback", "constructive criticism", "receptive", "open-minded", "code review", "guide feedback", "mentor pointed out", "critique", "not defensive"
+      ],
+      "Deep understanding of why the critique was valid and necessary": [
+        "task", "understood", "realized", "impact on team", "production standards", "valid point", "opportunity to learn"
+      ],
+      "Specific concrete actions and systems adopted to improve": [
+        "action", "refactored", "improved", "checklist", "tested", "implemented changes", "studied", "asked for guidance", "practiced"
+      ],
+      "Verifiable evidence of sustained growth and positive outcomes": [
+        "result", "outcome", "faster approval", "approved", "better quality", "mentor commended", "sustained improvement", "adopted by others"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Project guide reviews, internship PRs, or peer code reviews",
+        "focus": "Improving code architecture, unit testing, error handling, and API documentation based on feedback.",
+        "valid_evidence": ["Internship pull request feedback", "Capstone faculty guide review", "Hackathon judge advice"]
+      },
+      "ty_student": {
+        "context": "Professor evaluations, lab corrections, and mini-project feedback",
+        "focus": "Fixing coding style, understanding algorithms, improving report presentation.",
+        "valid_evidence": ["Lab assignment code review", "Professor feedback on presentation", "Peer feedback on logic"]
+      },
+      "experienced": {
+        "context": "Enterprise architecture reviews and performance appraisals",
+        "focus": "Strategic technical decisions, communication style, cross-team impact.",
+        "valid_evidence": ["Architecture review board critique", "360-degree feedback", "Sprint retro action items"]
+      }
+    },
+    "common_misconceptions": [
+      "Claiming to always receive only positive feedback",
+      "Describing a reaction that was defensive or dismissive",
+      "Providing a superficial answer without genuine reflection"
+    ],
+    "misconception_patterns": {
+      "never_criticized": ["no one has ever criticized me", "i always do everything perfectly"],
+      "defensive": ["i proved the mentor was wrong", "i was angry and argued back", "they just didn't understand my genius"]
+    },
+    "uses_star_method": true,
+    "evaluation_criteria": ["STAR structure", "receptiveness", "growth mindset", "follow-through"]
+  },
+  {
+    "question_id": "TECH001",
+    "category": "Technical",
+    "question": "Explain the difference between a list and a tuple in Python. When would you use each?",
+    "reference_answer": "In Python, both lists and tuples are ordered sequence collections, but they differ fundamentally in mutability, syntax, hashability, and memory efficiency. The primary difference is mutability: lists are mutable, meaning their elements can be appended, removed, or modified in place after creation, whereas tuples are immutable and cannot be changed once initialized. Syntactically, lists use square brackets `[]` and tuples use parentheses `()`. Because tuples are immutable, they are hashable (provided their contents are also hashable), which allows them to serve as dictionary keys or set elements, whereas lists are unhashable and will raise a TypeError if used as keys. Performance-wise, tuples have lower memory overhead and faster creation times because Python allocates a fixed memory block for them, whereas lists allocate extra space to accommodate dynamic resizing. In practice, you should use lists when you have a dynamic collection that changes over time, such as items in a shopping cart or query results. You should use tuples for fixed, heterogeneous records where data integrity is critical, such as geographic coordinates `(latitude, longitude)`, RGB color values, or multiple return values from a function.",
+    "expected_keywords": ["mutable", "immutable", "list", "tuple", "hashable", "dictionary keys", "square brackets", "parentheses", "memory", "performance", "use cases"],
+    "key_points": [
+      "Lists are mutable; tuples are immutable",
+      "Tuples are hashable and can be dictionary keys",
+      "Syntax differences (brackets vs parentheses)",
+      "Appropriate use cases for each"
+    ],
+    "essential_key_points": [
+      "Lists are mutable; tuples are immutable",
+      "Syntax differences: square brackets for lists and parentheses for tuples",
+      "Tuples are hashable (can be dictionary keys or set elements); lists are unhashable",
+      "Appropriate practical use cases for both lists and tuples"
+    ],
+    "supporting_key_points": [
+      "Memory efficiency and performance differences (tuples are fixed-size and faster)",
+      "Named tuples from collections module",
+      "Data integrity and preventing accidental modification"
+    ],
+    "optional_key_points": [
+      "Tuples containing mutable elements (e.g. list inside a tuple)",
+      "Underlying CPython over-allocation in lists vs tuples"
+    ],
+    "concept_synonyms": {
+      "Lists are mutable; tuples are immutable": [
+        "mutable", "immutable", "can be changed", "cannot be changed", "can be modified", "cannot be modified", "modified in place", "read only", "fixed data", "mutability"
+      ],
+      "Syntax differences: square brackets for lists and parentheses for tuples": [
+        "square brackets", "parentheses", "[]", "()", "brackets vs parentheses", "syntax"
+      ],
+      "Tuples are hashable (can be dictionary keys or set elements); lists are unhashable": [
+        "hashable", "unhashable", "dictionary keys", "dict keys", "keys in a dict", "set elements", "hash function", "hash"
+      ],
+      "Appropriate practical use cases for both lists and tuples": [
+        "use cases", "when to use", "dynamic collection", "coordinates", "rgb", "return multiple values", "shopping cart", "fixed records"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Placement technical rounds & coding interviews",
+        "focus": "Clear explanation of mutability, hashability for dict keys, memory differences, and real-world software examples.",
+        "valid_evidence": ["Hashability mechanism", "Dictionary keys requirement", "Real-world examples (coordinates vs list of users)"]
+      },
+      "ty_student": {
+        "context": "Python coursework & lab fundamentals",
+        "focus": "Defining mutability, syntax differences `[]` vs `()`, and basic usage.",
+        "valid_evidence": ["Lists can be modified, tuples cannot", "Brackets syntax", "Simple examples"]
+      },
+      "experienced": {
+        "context": "Senior Python development",
+        "focus": "CPython memory allocation, tuple caching/freelist optimizations, namedtuple/dataclass trade-offs.",
+        "valid_evidence": ["CPython memory allocation", "Tuple freelists", "Thread safety of immutability"]
+      }
+    },
+    "common_misconceptions": [
+      "Tuples are just read-only lists with no other differences",
+      "Lists are always faster than tuples",
+      "Tuples cannot contain mutable objects"
+    ],
+    "misconception_patterns": {
+      "read_only_list_only": ["tuples are just read only lists with no other difference", "tuples are identical to lists except read only"],
+      "lists_faster": ["lists are faster than tuples", "lists have better performance than tuples"],
+      "tuples_no_mutable": ["tuples can never contain mutable objects", "cannot put a list inside a tuple"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["technical accuracy", "depth of understanding", "practical examples", "clarity"]
+  },
+  {
+    "question_id": "TECH002",
+    "category": "Technical",
+    "question": "What is the difference between INNER JOIN and LEFT JOIN in SQL?",
+    "reference_answer": "In SQL, both INNER JOIN and LEFT JOIN combine rows from two or more tables based on a related column, but they handle unmatched rows differently. An INNER JOIN returns only the records that have matching values in both tables; any row from either table that does not have a corresponding foreign key match is excluded from the result set. In contrast, a LEFT JOIN (or LEFT OUTER JOIN) returns all records from the left table, along with the matched records from the right table. If a row in the left table has no matching row in the right table, the query still returns the left-table row, but with NULL values for all right-table columns. For example, joining a `Customers` table to an `Orders` table on `customer_id`: an INNER JOIN returns only customers who have placed at least one order. A LEFT JOIN returns all customers, including those who have never placed an order (with NULL in the order fields). Use INNER JOIN when you strictly need intersecting data where both entities exist. Use LEFT JOIN when you need to preserve all records from the primary entity, for summary reporting, or to identify missing relationships using `WHERE right_table.id IS NULL`.",
+    "expected_keywords": ["INNER JOIN", "LEFT JOIN", "matching rows", "NULL", "left table", "right table", "outer join", "result set", "foreign key", "use cases"],
+    "key_points": [
+      "INNER JOIN returns only matching rows from both tables",
+      "LEFT JOIN returns all rows from the left table including non-matches",
+      "Non-matching rows in LEFT JOIN produce NULL values",
+      "Practical use cases for each join type"
+    ],
+    "essential_key_points": [
+      "INNER JOIN returns only rows with matching values in both tables",
+      "LEFT JOIN returns all rows from the left table, matching rows from the right table",
+      "Unmatched right-table columns in LEFT JOIN are populated with NULL values",
+      "Clear practical use cases illustrating the difference"
+    ],
+    "supporting_key_points": [
+      "Using LEFT JOIN with `IS NULL` to find orphaned/missing records",
+      "Performance implications (INNER JOIN is generally faster due to filtering early)"
+    ],
+    "optional_key_points": [
+      "Comparison with RIGHT JOIN and FULL OUTER JOIN",
+      "Query optimizer execution plans and join algorithms (hash join, nested loop)"
+    ],
+    "concept_synonyms": {
+      "INNER JOIN returns only rows with matching values in both tables": [
+        "inner join", "matching rows", "common rows", "intersection", "matches in both tables", "matching records", "both tables have match"
+      ],
+      "LEFT JOIN returns all rows from the left table, matching rows from the right table": [
+        "left join", "left outer join", "all rows from left", "all records from first table", "keeps every left row", "complete left table"
+      ],
+      "Unmatched right-table columns in LEFT JOIN are populated with NULL values": [
+        "null", "null values", "fills with null", "missing columns are null", "null for right table"
+      ],
+      "Clear practical use cases illustrating the difference": [
+        "customers and orders", "use cases", "reporting", "finding missing records", "where right is null", "practical example"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Placement DBMS & SQL assessment",
+        "focus": "Clear definitions, NULL handling, practical schema example (customers/orders), and query patterns.",
+        "valid_evidence": ["Customers and orders example", "NULL generation explanation", "Finding orphaned records"]
+      },
+      "ty_student": {
+        "context": "Database management coursework & SQL labs",
+        "focus": "Understanding intersection vs outer join, syntax, and basic join behavior.",
+        "valid_evidence": ["Common rows vs all left rows", "NULL presence in unmatched columns"]
+      },
+      "experienced": {
+        "context": "Senior database development & data engineering",
+        "focus": "Query plan analysis, indexing on join keys, handling cardinality explosions, distributed joins.",
+        "valid_evidence": ["Join algorithms (Hash, Merge, Nested)", "Indexing strategies", "Handling NULL performance"]
+      }
+    },
+    "common_misconceptions": [
+      "LEFT JOIN always returns more rows than INNER JOIN",
+      "INNER JOIN is always better for performance",
+      "NULL values in LEFT JOIN indicate data corruption"
+    ],
+    "misconception_patterns": {
+      "always_more_rows": ["left join always returns more rows than inner join", "left join always gives you more rows"],
+      "null_is_corrupt": ["null means the database is broken", "null means data corruption"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["technical accuracy", "clear explanation", "practical examples", "completeness"]
+  },
+  {
+    "question_id": "TECH003",
+    "category": "Technical",
+    "question": "What is overfitting in machine learning and how can you prevent it?",
+    "reference_answer": "Overfitting in machine learning occurs when a model learns the training data too well, memorizing noise and random fluctuations rather than extracting the true underlying distribution. As a result, an overfitted model exhibits high training accuracy and low training loss, but performs poorly on unseen test or validation data, demonstrating poor generalization. It is a manifestation of high variance and low bias. Several established techniques prevent overfitting: First, regularization methods like L1 (Lasso) and L2 (Ridge) add penalty terms to the loss function based on weight magnitude, discouraging overly complex models. Second, cross-validation (such as k-fold cross-validation) ensures the model's performance is verified across multiple validation splits. Third, early stopping halts training when validation loss stops improving before the model begins memorizing noise. Fourth, dropout randomly deactivates a fraction of neurons during neural network training to prevent co-adaptation. Finally, increasing training data via collection or data augmentation, as well as feature selection or dimensionality reduction, prevents the model from picking up spurious correlations.",
+    "expected_keywords": ["overfitting", "generalization", "noise", "training data", "validation", "regularization", "cross-validation", "dropout", "early stopping", "bias-variance tradeoff", "data augmentation"],
+    "key_points": [
+      "Definition of overfitting and why it occurs",
+      "How to detect overfitting (training vs validation performance)",
+      "Multiple prevention techniques with explanations",
+      "Understanding of bias-variance tradeoff concept"
+    ],
+    "essential_key_points": [
+      "Definition: model memorizes training noise rather than generalizable patterns",
+      "Detection: high training performance but poor performance on unseen test/validation data",
+      "At least two to three concrete prevention techniques explained (regularization, cross-validation, dropout, early stopping, more data)"
+    ],
+    "supporting_key_points": [
+      "Bias-variance tradeoff explanation (high variance, low bias)",
+      "Specific regularization mechanics (L1 / L2 penalties)",
+      "Data augmentation and feature selection strategies"
+    ],
+    "optional_key_points": [
+      "Ensemble methods (Random Forest / Bagging) to reduce variance",
+      "Double descent phenomenon in modern deep learning"
+    ],
+    "concept_synonyms": {
+      "Definition: model memorizes training noise rather than generalizable patterns": [
+        "overfitting", "memorizes", "memorizing", "learns noise", "random fluctuations", "fails to generalize", "poor generalization", "generalize to unseen"
+      ],
+      "Detection: high training performance but poor performance on unseen test/validation data": [
+        "high training accuracy", "low training loss", "poor test accuracy", "high validation loss", "gap between train and test", "unseen data"
+      ],
+      "At least two to three concrete prevention techniques explained (regularization, cross-validation, dropout, early stopping, more data)": [
+        "prevention", "regularization", "l1", "l2", "ridge", "lasso", "cross-validation", "k-fold", "dropout", "early stopping", "data augmentation", "more data", "feature selection", "pruning"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Campus ML/AI engineer interviews",
+        "focus": "Clear conceptual definition, high variance link, practical prevention methods used in projects (cross-validation, dropout, L2).",
+        "valid_evidence": ["Train vs validation curve gap", "Applying dropout or k-fold in project", "L1 vs L2 regularization"]
+      },
+      "ty_student": {
+        "context": "Machine learning coursework & lab exams",
+        "focus": "Basic definition (memorizing vs learning), train/test split, simple prevention (more data, cross-validation).",
+        "valid_evidence": ["Model memorizes data", "Fails on test set", "Cross-validation", "Regularization"]
+      },
+      "experienced": {
+        "context": "Senior ML Practitioner & MLOps",
+        "focus": "Regularization math, weight decay vs L2 in AdamW, data leakage detection, distribution shift vs overfitting.",
+        "valid_evidence": ["AdamW weight decay", "Monitoring validation drift", "Adversarial validation"]
+      }
+    },
+    "common_misconceptions": [
+      "High training accuracy always means a good model",
+      "Overfitting only happens with neural networks",
+      "More features always lead to better models",
+      "Cross-validation eliminates overfitting entirely"
+    ],
+    "misconception_patterns": {
+      "high_accuracy_good": ["100% training accuracy means perfect model", "hundred percent training accuracy is the goal", "high training accuracy always means good"],
+      "only_neural_nets": ["overfitting only happens in deep learning", "only neural networks overfit"],
+      "cv_eliminates": ["cross validation completely eliminates overfitting"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["technical accuracy", "breadth of techniques", "conceptual depth", "practical understanding"]
+  },
+  {
+    "question_id": "TECH004",
+    "category": "Technical",
+    "question": "Explain precision, recall, and F1-score in the context of model evaluation.",
+    "reference_answer": "Precision, recall, and F1-score are critical evaluation metrics for classification models, especially when evaluating imbalanced datasets where accuracy is misleading. Precision measures the accuracy of positive predictions: of all instances the model predicted as positive, how many were actually positive? Mathematically, Precision = TP / (TP + FP). It is crucial when the cost of a false positive is high, such as in email spam filters where legitimate emails must not be sent to spam. Recall (also known as sensitivity or True Positive Rate) measures the model's ability to find all actual positives: of all actual positive instances, how many did the model correctly identify? Mathematically, Recall = TP / (TP + FN). It is vital when the cost of a false negative is catastrophic, such as in cancer detection or fraud identification where missing a positive case has severe consequences. The F1-score is the harmonic mean of precision and recall: F1 = 2 * (Precision * Recall) / (Precision + Recall). The harmonic mean is chosen rather than the arithmetic mean because it heavily penalizes extreme imbalances; if either precision or recall is close to zero, the F1-score drops sharply. F1 provides a balanced single metric when you need a compromise between precision and recall on imbalanced datasets.",
+    "expected_keywords": ["precision", "recall", "F1-score", "true positive", "false positive", "false negative", "harmonic mean", "imbalanced", "classification", "sensitivity", "tradeoff"],
+    "key_points": [
+      "Precision definition and formula",
+      "Recall definition and formula",
+      "F1-score as harmonic mean of precision and recall",
+      "When to prioritize precision vs recall with real examples"
+    ],
+    "essential_key_points": [
+      "Precision definition: TP / (TP + FP) or proportion of positive predictions that are correct",
+      "Recall definition: TP / (TP + FN) or proportion of actual positive cases detected",
+      "F1-score definition as the harmonic mean of precision and recall",
+      "Trade-off and practical scenarios for prioritizing precision vs recall (e.g. spam detection vs medical diagnosis)"
+    ],
+    "supporting_key_points": [
+      "Why harmonic mean is used instead of arithmetic mean (penalizing extreme imbalances)",
+      "Why overall accuracy is deceptive on imbalanced datasets",
+      "Confusion matrix components (TP, FP, FN, TN)"
+    ],
+    "optional_key_points": [
+      "Macro vs micro vs weighted F1 averaging in multi-class classification",
+      "Precision-Recall curves and PR-AUC"
+    ],
+    "concept_synonyms": {
+      "Precision definition: TP / (TP + FP) or proportion of positive predictions that are correct": [
+        "precision", "tp / (tp + fp)", "tp/(tp+fp)", "true positives divided by", "positive predictions correct", "predicted positive"
+      ],
+      "Recall definition: TP / (TP + FN) or proportion of actual positive cases detected": [
+        "recall", "sensitivity", "true positive rate", "tp / (tp + fn)", "tp/(tp+fn)", "actual positives detected", "detected positive cases"
+      ],
+      "F1-score definition as the harmonic mean of precision and recall": [
+        "f1-score", "f1 score", "harmonic mean", "2 * precision * recall", "2*(precision*recall)", "balances precision and recall"
+      ],
+      "Trade-off and practical scenarios for prioritizing precision vs recall (e.g. spam detection vs medical diagnosis)": [
+        "tradeoff", "trade-off", "imbalanced", "spam", "medical", "disease", "fraud", "false positive costly", "false negative costly"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Data science & ML campus placement interviews",
+        "focus": "Correct formulas, harmonic mean rationale, real-world examples (cancer diagnosis vs spam filter), imbalanced data reasoning.",
+        "valid_evidence": ["Mathematical formulas", "Medical diagnosis vs spam example", "Harmonic mean explanation"]
+      },
+      "ty_student": {
+        "context": "Introductory ML & data science coursework",
+        "focus": "Definitions of precision, recall, F1, confusion matrix basics, and why accuracy is not always enough.",
+        "valid_evidence": ["Definitions", "TP, FP, FN mentions", "High-level use case"]
+      },
+      "experienced": {
+        "context": "Senior Data Scientist & ML Engineer",
+        "focus": "Threshold calibration, Cost-sensitive learning, Macro/Micro/Weighted F1, PR-AUC vs ROC-AUC on skewed data.",
+        "valid_evidence": ["Decision threshold tuning", "Macro vs weighted F1", "Cost matrix integration"]
+      }
+    },
+    "common_misconceptions": [
+      "F1-score is the arithmetic mean of precision and recall",
+      "Accuracy is always sufficient for model evaluation",
+      "Precision and recall are interchangeable concepts",
+      "A model with 99% accuracy on an imbalanced dataset is always good"
+    ],
+    "misconception_patterns": {
+      "arithmetic_mean": ["f1 score is the arithmetic mean", "f1 is the average of precision plus recall divided by two", "f1 is arithmetic average"],
+      "accuracy_sufficient": ["accuracy is always sufficient", "accuracy is all we need for evaluation"],
+      "interchangeable": ["precision and recall are the same thing", "precision is the same as recall"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["technical accuracy", "formula clarity", "practical examples", "understanding of tradeoffs"]
+  },
+  {
+    "question_id": "TECH005",
+    "category": "Technical",
+    "question": "What are Python decorators and how do they work?",
+    "reference_answer": "In Python, a decorator is a design pattern and language feature that allows you to dynamically extend or modify the behavior of a function or method without modifying its original source code. Mechanically, a decorator is a higher-order function that takes another function as an argument, defines an inner wrapper function that adds pre- or post-execution logic, and returns the modified wrapper function. The `@decorator_name` syntax is syntactic sugar: writing `@my_decorator` above `def my_func(): ...` is functionally equivalent to `my_func = my_decorator(my_func)`. Internally, decorators leverage Python's first-class functions and closures to maintain state or access the original function. To preserve the original function's metadata—such as its name, docstring, and parameter signature—it is best practice to decorate the inner wrapper with `@functools.wraps(func)`. Common practical use cases include logging function execution, timing runtime performance, enforcing access control and authentication in web frameworks like Flask or FastAPI, caching expensive function returns using `@functools.lru_cache`, and input validation.",
+    "expected_keywords": ["decorator", "wrapper", "function", "higher-order function", "callable", "syntactic sugar", "at-symbol", "functools", "wraps", "closure", "use cases"],
+    "key_points": [
+      "Decorators modify function behavior without changing source code",
+      "The at-symbol syntax is syntactic sugar",
+      "How the wrapper function pattern works",
+      "Common practical use cases"
+    ],
+    "essential_key_points": [
+      "Decorators modify or extend a function's behavior without changing its source code",
+      "Decorators are higher-order functions that take a function, wrap it, and return the wrapper",
+      "The `@` syntax is syntactic sugar for `func = decorator(func)`",
+      "Practical use cases (e.g. logging, timing, authentication, caching with lru_cache)"
+    ],
+    "supporting_key_points": [
+      "Using `functools.wraps` to preserve function metadata (docstring, function name)",
+      "Mechanism relies on first-class functions and closures"
+    ],
+    "optional_key_points": [
+      "Decorators that take arguments (nested 3-level functions)",
+      "Class-based decorators implementing `__call__`"
+    ],
+    "concept_synonyms": {
+      "Decorators modify or extend a function's behavior without changing its source code": [
+        "modify behavior", "extend behavior", "without modifying source code", "without changing code", "design pattern", "enhance function"
+      ],
+      "Decorators are higher-order functions that take a function, wrap it, and return the wrapper": [
+        "higher-order function", "higher order", "wrapper function", "takes function as argument", "returns a function", "inner function", "closure"
+      ],
+      "The `@` syntax is syntactic sugar for `func = decorator(func)`": [
+        "syntactic sugar", "at symbol", "@ syntax", "@ symbol", "pie syntax", "equivalent to func = decorator(func)"
+      ],
+      "Practical use cases (e.g. logging, timing, authentication, caching with lru_cache)": [
+        "logging", "timing", "execution time", "authentication", "authorization", "caching", "lru_cache", "validation", "use cases"
+      ]
+    },
+    "level_adaptations": {
+      "final_year": {
+        "context": "Python backend & software engineering campus interviews",
+        "focus": "Clear mechanism (function wrapping, closure), syntactic sugar explanation, `functools.wraps`, real use cases (timing, auth, caching).",
+        "valid_evidence": ["Higher order function", "Inner wrapper pattern", "functools.wraps preservation", "Flask/FastAPI auth example"]
+      },
+      "ty_student": {
+        "context": "Python programming coursework & labs",
+        "focus": "Modifying functions without changing code, `@` symbol usage, basic wrapper concept, simple timing/logging example.",
+        "valid_evidence": ["Wraps function", "@ syntax", "Logging or timing example"]
+      },
+      "experienced": {
+        "context": "Senior Python & framework engineering",
+        "focus": "Parameterized decorators, class decorators (`__call__`), inspect module signature preservation, method binding (`__get__` descriptor protocol).",
+        "valid_evidence": ["Descriptor protocol in method decorators", "Decorator factories with arguments", "Class decorators"]
+      }
+    },
+    "common_misconceptions": [
+      "Decorators permanently modify the original function source code",
+      "Decorators can only be applied to functions, not methods or classes",
+      "The at-symbol syntax is required to use decorators",
+      "Decorators always slow down function execution significantly"
+    ],
+    "misconception_patterns": {
+      "permanently_modifies": ["permanently rewrites the code", "modifies the source file", "alters the actual code text"],
+      "at_symbol_required": ["you cannot use decorators without the at symbol", "at symbol is mandatory"]
+    },
+    "uses_star_method": false,
+    "evaluation_criteria": ["technical accuracy", "mechanism explanation", "practical examples", "depth"]
+  }
+]
