@@ -284,16 +284,38 @@ def evaluate_answer(
     # 2. Run Preprocessing
     prep_res = preprocess_answer(cleaned_ans)
 
+    # CO3: Multilingual detection and routing (must run before semantic analysis)
+    try:
+        from modules.multilingual import detect_and_process_multilingual
+        multilingual_res = detect_and_process_multilingual(cleaned_ans)
+    except Exception as _ml_exc:
+        multilingual_res = {
+            "original_text": cleaned_ans,
+            "detected_language": "English",
+            "language_code": "en",
+            "detection_confidence": 0.0,
+            "evaluation_text": cleaned_ans,
+            "translation_used": False,
+            "translated_text": None,
+            "processing_status": "detection_failed",
+            "cloud_service_used": "None",
+            "evaluation_note": f"Multilingual processing unavailable: {_ml_exc}",
+            "detection_note": "",
+        }
+
+    # Use translated text for semantic and structural evaluation if non-English; otherwise unchanged
+    _eval_text = multilingual_res.get("evaluation_text", cleaned_ans)
+
     # 3. Run Communication & Delivery Analyses
     comm_res = analyze_communication(cleaned_ans)
     delivery_res = analyze_delivery_indicators(cleaned_ans)
 
     # 4. Run Semantic & Correctness Analyses
-    semantic_res = analyze_semantics(question_data, cleaned_ans, candidate_level=valid_level)
-    correctness_res = analyze_technical_correctness(cleaned_ans, question_data)
+    semantic_res = analyze_semantics(question_data, _eval_text, candidate_level=valid_level)
+    correctness_res = analyze_technical_correctness(_eval_text, question_data)
 
     # 5. Run Structure Analysis
-    structure_res = analyze_structure(cleaned_ans, question_data, candidate_level=valid_level)
+    structure_res = analyze_structure(_eval_text, question_data, candidate_level=valid_level)
 
     # 6. Calculate Component Scores (0 - 100)
     # A. Semantic score: base composite from semantic analysis, penalized if known misconceptions exist
@@ -340,6 +362,34 @@ def evaluate_answer(
 
     performance_category = get_performance_category(overall_score)
 
+    # Include sentiment analysis and information extraction in evaluation output (CO2)
+    if multilingual_res.get("translation_used"):
+        try:
+            from modules.preprocessing import analyze_sentiment
+            sentiment_res = analyze_sentiment(_eval_text)
+        except Exception:
+            sentiment_res = prep_res.get("sentiment", {})
+    else:
+        sentiment_res = prep_res.get("sentiment", {})
+
+    from modules.semantic_analysis import extract_information
+    info_extraction_res = extract_information(_eval_text, question_data)
+
+    # CO2 & CO3: spaCy NER, Skill Extraction, Emotion Analysis & Topic Modeling
+    try:
+        from modules.ner_skills_emotion import extract_entities_and_skills, analyze_emotions
+        ner_res = extract_entities_and_skills(_eval_text)
+        emotion_res = analyze_emotions(_eval_text)
+    except Exception:
+        ner_res = {"entities": [], "technical_skills": [], "behavioral_skills": [], "total_skills_detected": 0}
+        emotion_res = {"dominant_emotion": "neutral", "confidence": 1.0, "emotion_scores": {"neutral": 1.0}}
+
+    try:
+        from modules.topic_modeling import infer_topics
+        topic_res = infer_topics(_eval_text)
+    except Exception:
+        topic_res = {"dominant_topic": "General", "confidence": 1.0, "topic_distribution": {}}
+
     evaluation_result: Dict[str, Any] = {
         "question_id": clean_qid,
         "question": question_text,
@@ -354,6 +404,12 @@ def evaluate_answer(
         "communication_analysis": comm_res,
         "delivery_analysis": delivery_res,
         "structure_analysis": structure_res,
+        "sentiment_analysis": sentiment_res,
+        "information_extraction": info_extraction_res,
+        "multilingual_analysis": multilingual_res,
+        "entities_and_skills": ner_res,
+        "emotion_analysis": emotion_res,
+        "topic_analysis": topic_res,
         "feedback": {},
         "analysis_status": "success",
     }

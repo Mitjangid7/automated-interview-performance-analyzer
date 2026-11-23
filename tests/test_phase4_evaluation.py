@@ -143,19 +143,19 @@ class TestAllFifteenQuestionsEvaluation:
         assert res["overall_score"] < 55.0
 
     # ── HR005 ──
-    def test_hr005_strong_graduation_transition(self):
+    def test_hr005_strong_why_hire_me(self):
         ans = (
-            "As a final-year engineering student, I am completing my degree and preparing to transition from academia "
-            "into my first full-time software engineering role. While my academic coursework and internship gave me a strong "
-            "foundation in data structures and backend development, I am eager to join your company to build scalable production "
-            "systems under experienced senior engineers."
+            "You should hire me because I offer strong technical skills in Python, FastAPI, and machine learning, "
+            "backed by solid project evidence from my final-year capstone project where I built a scalable analytics portal. "
+            "My key strengths include systematic debugging, rapid learning curve, and collaborative teamwork. "
+            "I am excited to align with your engineering team's mission to deliver reliable production software."
         )
         res = evaluate_answer("HR005", ans, candidate_level=LEVEL_FINAL_YEAR)
         assert res["overall_score"] >= 80.0
         assert res["component_scores"]["semantic"] >= 75.0
 
-    def test_hr005_badmouthing_misconception(self):
-        ans = "I hate my college and professors were bad so I just want any job that pays me."
+    def test_hr005_generic_claims_misconception(self):
+        ans = "You should hire me because I am the best candidate and just trust me on this."
         res = evaluate_answer("HR005", ans, candidate_level=LEVEL_FINAL_YEAR)
         assert res["technical_correctness"]["has_misconceptions"] is True
 
@@ -311,18 +311,21 @@ class TestAllFifteenQuestionsEvaluation:
         assert res["technical_correctness"]["has_misconceptions"] is True
 
     # ── TECH005 ──
-    def test_tech005_strong_decorators(self):
+    def test_tech005_strong_feature_scaling(self):
         ans = (
-            "In Python, decorators are higher-order functions that modify or extend the behavior of another function without altering its source code. "
-            "A decorator takes a function as an argument, defines an inner wrapper function that adds pre- or post-execution logic, and returns the wrapper. "
-            "The @ syntax is syntactic sugar for func = decorator(func). Common use cases include logging, execution timing, authentication, and caching with lru_cache."
+            "Feature scaling transforms numerical input features onto a consistent, comparable scale. "
+            "Without scaling, features with large numeric ranges dominate distance calculations in algorithms like KNN and SVM, "
+            "and cause oscillating or slow gradient descent convergence in linear models and neural networks. "
+            "Normalization scales values to a fixed range between 0 and 1 using the min-max formula, but is sensitive to outliers. "
+            "Standardization transforms data to zero mean and unit variance using the z-score formula and is more robust to outliers. "
+            "Distance-based algorithms require scaling, whereas decision tree ensembles are scale-invariant."
         )
         res = evaluate_answer("TECH005", ans, candidate_level=LEVEL_FINAL_YEAR)
-        assert res["overall_score"] >= 85.0
-        assert res["component_scores"]["semantic"] >= 85.0
+        assert res["overall_score"] >= 80.0
+        assert res["component_scores"]["semantic"] >= 75.0
 
-    def test_tech005_misconception_permanently_alters_code(self):
-        ans = "Decorators permanently rewrites the code in the file so the original function is lost."
+    def test_tech005_misconception_all_models_need_scaling(self):
+        ans = "Feature scaling is mandatory for every single model and decision trees must be scaled or they will fail."
         res = evaluate_answer("TECH005", ans, candidate_level=LEVEL_FINAL_YEAR)
         assert res["technical_correctness"]["has_misconceptions"] is True
 

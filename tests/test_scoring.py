@@ -64,7 +64,7 @@ class TestScoringEngine:
         assert res["component_scores"]["semantic"] == 0.0
 
     def test_json_serializability(self):
-        cand = "Decorators in Python wrap functions to extend behavior without modifying source code."
+        cand = "Feature scaling transforms features onto a uniform scale using normalization or standardization."
         res = evaluate_answer("TECH005", cand)
         # Must serialize cleanly to JSON
         json_str = json.dumps(res)

@@ -1,0 +1,17 @@
+{
+  "technical_skills": [
+    "Python", "Java", "C++", "C#", "JavaScript", "TypeScript", "Go", "Rust", "Ruby", "PHP", "Swift", "Kotlin", "Scala",
+    "SQL", "PostgreSQL", "MySQL", "SQLite", "MongoDB", "Redis", "Cassandra", "Elasticsearch", "DynamoDB",
+    "React", "Vue", "Angular", "Next.js", "Django", "FastAPI", "Flask", "Spring Boot", "Express", "Node.js", "ASP.NET",
+    "Docker", "Kubernetes", "AWS", "Azure", "GCP", "Terraform", "Ansible", "CI/CD", "Jenkins", "GitHub Actions",
+    "Git", "REST API", "GraphQL", "gRPC", "WebSockets", "Microservices", "Event-Driven Architecture", "Kafka", "RabbitMQ",
+    "PyTorch", "TensorFlow", "Scikit-Learn", "Pandas", "NumPy", "Hugging Face", "LangChain", "OpenCV", "NLP", "LLM",
+    "Unit Testing", "Pytest", "Integration Testing", "TDD", "BDD", "Pre-commit", "Linux", "Nginx", "Apache"
+  ],
+  "behavioral_skills": [
+    "Leadership", "Teamwork", "Cross-functional Collaboration", "Conflict Resolution", "Communication",
+    "Time Management", "Problem Solving", "Critical Thinking", "Adaptability", "Agile", "Scrum",
+    "Mentoring", "Code Review", "Stakeholder Management", "Prioritization", "Systematic Debugging",
+    "Root Cause Analysis", "Documentation", "Continuous Learning", "Presentation"
+  ]
+}

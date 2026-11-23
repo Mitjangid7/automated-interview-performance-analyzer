@@ -352,6 +352,7 @@ def preprocess_answer(text: Any) -> Dict[str, Any]:
     sentences = extract_sentences(cleaned)
     stats = extract_basic_statistics(cleaned)
     sentiment = analyze_sentiment(cleaned)
+    lemmas = lemmatize_text_spacy(cleaned)
 
     return {
         "original_text": raw_text,
@@ -359,7 +360,34 @@ def preprocess_answer(text: Any) -> Dict[str, Any]:
         "normalized_text": normalized,
         "tokens": tokens,
         "filtered_tokens": filtered_tokens,
+        "lemmas": lemmas,
         "sentences": sentences,
         "statistics": stats,
         "sentiment": sentiment,
     }
+
+
+def lemmatize_text_spacy(text: Any) -> List[str]:
+    """
+    Extract lemmatized tokens using spaCy (en_core_web_md).
+    Preserves root words (e.g. 'running' -> 'run', 'optimizations' -> 'optimization')
+    with punctuation and stop words filtered.
+    """
+    if not text:
+        return []
+    cleaned = clean_text(str(text))
+    if not cleaned:
+        return []
+
+    try:
+        from modules.ner_skills_emotion import get_spacy_model
+        nlp = get_spacy_model()
+        doc = nlp(cleaned)
+        return [
+            token.lemma_.lower()
+            for token in doc
+            if not token.is_punct and not token.is_space and not token.is_stop
+        ]
+    except Exception:
+        # Fallback simple tokenization
+        return tokenize_text(cleaned, lowercase=True)

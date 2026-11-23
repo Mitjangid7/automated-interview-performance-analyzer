@@ -34,9 +34,43 @@ from ui.history import save_evaluation_to_history
 
 
 def get_approach_guidance(question_data: Dict[str, Any], candidate_level: str = "final_year") -> str:
-    """Generate strategic guidance based on category, STAR flag, and candidate level."""
+    """Generate strategic guidance based on category, STAR flag, question ID, and candidate level."""
+    qid = question_data.get("question_id", "")
     cat = question_data.get("category", "")
     uses_star = question_data.get("uses_star_method", False)
+
+    if qid == "HR005":
+        if candidate_level == LEVEL_FINAL_YEAR:
+            ev_tip = "Cite your **capstone engineering project, industry internship, and core tech stack**."
+        elif candidate_level == LEVEL_TY_STUDENT:
+            ev_tip = "Highlight your **academic mini-projects, hackathons, rapid learning curve, and coursework**."
+        else:
+            ev_tip = "Demonstrate your **track record of production delivery, cross-functional impact, and technical ownership**."
+
+        return (
+            f"🎯 **Approach Strategy (Skills → Evidence → Strengths → Alignment — {candidate_level.replace('_', ' ').title()} Track):**\n"
+            "- **Skills:** State your core technical foundation and key programming / engineering tools.\n"
+            f"- **Evidence:** Back your claims with concrete projects or accomplishments. *{ev_tip}*\n"
+            "- **Strengths:** Emphasize critical differentiating traits (e.g. debugging under pressure, fast learner, system design rigor).\n"
+            "- **Role Alignment:** Explicitly connect your skills and passion with the team's mission and technical goals."
+        )
+
+    if qid == "TECH005":
+        if candidate_level == LEVEL_FINAL_YEAR:
+            alg_tip = "Contrast algorithms requiring scaling (**KNN, SVM, Gradient Descent**) with scale-invariant models (**Decision Trees, Random Forests**)."
+        elif candidate_level == LEVEL_TY_STUDENT:
+            alg_tip = "Explain why large numeric values dominate distance calculations in **KNN and K-Means**."
+        else:
+            alg_tip = "Discuss data leakage prevention during train/test split, handling outliers with **RobustScaler**, and computational stability."
+
+        return (
+            f"🎯 **Approach Strategy (Definition → Need → Normalization → Standardization → Example — {candidate_level.replace('_', ' ').title()} Track):**\n"
+            "- **Definition:** Define feature scaling as transforming numerical features onto a uniform comparable scale.\n"
+            "- **Need:** Explain why unscaled features distort distance metrics and cause oscillating/slow gradient descent convergence.\n"
+            "- **Normalization (Min-Max):** Explain scaling to [0, 1], formula (X - X_min)/(X_max - X_min), and sensitivity to outliers.\n"
+            "- **Standardization (Z-Score):** Explain transformation to zero mean and unit variance, formula (X - μ)/σ, and robustness to outliers.\n"
+            f"- **Practical Examples:** {alg_tip}"
+        )
 
     if uses_star or cat.lower() == "behavioral":
         if candidate_level == LEVEL_FINAL_YEAR:
@@ -169,8 +203,18 @@ def _render_transcription_diagnostics(
     rate = props.get("sample_rate", "N/A")
     ch = props.get("channels", "N/A")
     bits = props.get("bit_depth", "N/A")
-    dur = props.get("duration_sec", 0.0)
+    dur = props.get("duration_sec", tx_info.get("duration", 0.0))
     fmt = props.get("format", "WAV")
+
+    detected_lang = tx_info.get("language", "English")
+    lang_code = tx_info.get("language_code", "en")
+    orig_transcript = tx_info.get("original_transcript", tx_info.get("text", ""))
+    trans_applied = tx_info.get("translation_applied", False)
+    trans_note = (
+        "Yes"
+        if trans_applied
+        else "No (Preserved in original script; translated during evaluation if non-English)"
+    )
 
     st_module.markdown(
         f"""
@@ -183,6 +227,9 @@ def _render_transcription_diagnostics(
                 • <b>Byte Payload:</b> {byte_count:,} bytes (~{byte_count/1024:.1f} KB)<br/>
                 • <b>Detected Properties:</b> {fmt} | {rate} Hz | {ch} channel(s) | {bits}-bit PCM<br/>
                 • <b>Duration:</b> ~{dur}s | <b>Engine:</b> <span style='color: #7DB8F5;'>{engine}</span><br/>
+                • <b>Detected Language:</b> <span style='color: #38BDF8;'>{detected_lang}</span> (Code: <code>{lang_code}</code>)<br/>
+                • <b>Original Transcript:</b> <span style='color: #F8FAFC;'>"{orig_transcript}"</span><br/>
+                • <b>Translation Applied:</b> <span style='color: #34D399;'>{trans_note}</span><br/>
                 • <b>Handler Status:</b> <code>transcribe_audio_payload()</code> returned <code>{status}</code>.
             </div>
         </div>

@@ -21,22 +21,30 @@ from utils.helpers import clamp
 # Linguistic indicator patterns for each STAR component (adapted for students, placements & industry)
 SITUATION_PATTERNS = [
     r"\bsituation\s*[:\-]",
-    r"\bin my (?:previous|former|last|past) (?:role|job|company|team|project|position)\b",
-    r"\bat my (?:previous|former|last|past) (?:company|job|role|team)\b",
-    r"\bduring my (?:internship|tenure|time|work|training)\b",
+    # Temporal & contextual openings in projects/work (covers "During an academic project", "In one of my previous projects", etc.)
+    r"\b(?:during|in|for|throughout)\s+(?:an?|my|our|the|one\s+of\s+(?:my|our))\s+(?:recent\s+|previous\s+|past\s+|former\s+|academic\s+|college\s+|university\s+|engineering\s+|group\s+|team\s+|course\s+|semester\s+|internship\s+|capstone\s+|final[- ]year\s+|mini[- ]project\s+|client\s+|software\s+)*(?:project|internship|role|job|hackathon|assignment|lab|coursework|competition|engagement|tenure|position|work|portal|submission)\b",
+    r"\bin\s+(?:one\s+of\s+)?(?:my|our)\s+(?:previous|former|last|past|recent)\s+(?:roles?|jobs?|compan(?:y|ies)|teams?|projects?|positions?)\b",
+    r"\bat\s+(?:my|our|the)\s+(?:previous\s+|past\s+|former\s+|recent\s+|college\s+|university\s+)*(?:internship|company|organization|firm|startup|workplace|lab|job|role|team)\b",
+    r"\bduring\s+(?:my|our|an?|the)\s+(?:internship|tenure|time|work|training|studies)\b",
     r"\bat that time\b",
-    r"\bwhen i was (?:working|at|leading|managing|employed|studying)\b",
-    r"\bour team (?:was tasked with|was facing|had to|experienced)\b",
-    r"\bwe were (?:tasked with|working on|building|migrating|facing|developing)\b",
-    r"\bthere was a (?:time|situation|scenario|problem|incident|challenge)\b",
-    r"\bthe context was\b",
-    r"\bthe project involved\b",
+    r"\b(?:when|while)\s+(?:i\s+was|we\s+were)\s+(?:working|at|leading|managing|employed|studying|interning|an intern|a student)\b",
+    r"\bwhile\s+(?:working|collaborating|studying|developing|building|interning)\s+(?:with|on|at|for|in)\b",
+    # Facing / encountering challenges, conflicts, disagreements, or scenarios (covers "We encountered a challenge when...", "our team faced a disagreement...", etc.)
+    r"\b(?:our\s+team|my\s+team|we|i)\s+(?:faced|encountered|experienced|had|ran\s+into|dealt\s+with)\s+(?:a|an)\s+(?:disagreement|conflict|challenge|problem|issue|hurdle|difficulty|roadblock|delay|deadlock|bottleneck|crisis|situation)\b",
+    r"\b(?:we|our\s+team|my\s+team|i)\s+encountered\s+a\s+challenge\s+when\b",
+    r"\bwhen\s+(?:our\s+team|my\s+team|we|i)\s+(?:faced|encountered|experienced|ran\s+into|were\s+faced\s+with)\b",
+    r"\b(?:our\s+team|my\s+team)\s+(?:was\s+tasked\s+with|was\s+facing|had\s+to|experienced|faced)\b",
+    r"\bwe\s+were\s+(?:tasked\s+with|working\s+on|building|migrating|facing|developing)\b",
+    r"\bthere\s+was\s+a\s+(?:time|situation|scenario|problem|incident|challenge|disagreement|conflict)\b",
+    r"\ba\s+situation\s+(?:arose|occurred|happened)\b",
+    r"\bthe\s+context\s+was\b",
+    r"\bthe\s+project\s+involved\b",
     # Academic, placement & student project patterns:
-    r"\b(?:in|during|for) (?:my|our) (?:final[- ]year|capstone|semester|mini[- ]project|academic|b\.?tech|b\.?e\.?) (?:project|review|submission|portal)\b",
-    r"\b(?:during|in|at) (?:a|our|the) (?:college|university|annual)?\s*(?:hackathon|coding competition|tech fest|contest)\b",
-    r"\b(?:in|during) (?:my|our) (?:lab|coursework|assignment|internship)\b",
-    r"\bwhen (?:our|my) (?:project|hackathon|student|capstone) team\b",
-    r"\bfor our (?:degree|college|department) project\b",
+    r"\b(?:in|during|for)\s+(?:my|our|an?|the)\s+(?:final[- ]year|capstone|semester|mini[- ]project|academic|b\.?tech|b\.?e\.?)\s+(?:group\s+|team\s+)?(?:project|review|submission|portal)\b",
+    r"\b(?:during|in|at)\s+(?:a|an|our|the)\s+(?:college|university|annual)?\s*(?:hackathon|coding\s+competition|tech\s+fest|contest)\b",
+    r"\b(?:in|during)\s+(?:my|our|an?)\s+(?:lab|coursework|assignment|internship)\b",
+    r"\bwhen\s+(?:our|my)\s+(?:project|hackathon|student|capstone)\s+team\b",
+    r"\bfor\s+(?:our|my|an?)\s+(?:degree|college|department)\s+project\b",
 ]
 
 TASK_PATTERNS = [
@@ -383,6 +391,200 @@ def analyze_general_structure(text: str) -> Dict[str, Any]:
     }
 
 
+def detect_skills_evidence_strengths_alignment_structure(
+    text: Any,
+    candidate_level: str = "final_year",
+) -> Dict[str, Any]:
+    """
+    Detect structured progression for HR005: Skills → Evidence → Strengths → Role Alignment.
+    """
+    cleaned = clean_text(text)
+    if not cleaned:
+        return {
+            "framework": "SkillsEvidenceStrengthsAlignment",
+            "framework_title": "Interview Answering Framework: Skills → Evidence → Strengths → Role Alignment",
+            "structure_score": 0.0,
+            "framework_stages": [
+                ("1. Skills & Technical Foundation", False),
+                ("2. Project / Practical Evidence", False),
+                ("3. Strengths & Problem-Solving", False),
+                ("4. Role & Team Alignment", False),
+            ],
+            "components_detected": [],
+            "components_missing": ["Skills", "Evidence", "Strengths", "Role Alignment"],
+            "observations": ["Empty response; no framework components detected."],
+            "candidate_level": candidate_level,
+        }
+
+    t_lower = cleaned.lower()
+
+    pat_skills = (
+        r"\b(?:skills?|technical\s+skills?|core\s+competencies|proficiency\s+in|proficient\s+with|"
+        r"experience\s+with|programming\s+in|background\s+in|foundation\s+in|competencies|backend|"
+        r"data\s+structures|python|sql|java|c\+\+|full[- ]stack|machine\s+learning)\b"
+    )
+    pat_evidence = (
+        r"\b(?:for\s+example|evidence|capstone|internship|project|built|developed|architected|"
+        r"implemented|created|designed|delivered|achieved|code\s+coverage|test\s+coverage|github|deployed)\b"
+    )
+    pat_strengths = (
+        r"\b(?:my\s+strengths?|unique\s+strengths?|fast\s+learner|quick\s+learner|problem[- ]solving|"
+        r"adaptability|disciplined|collaborate|teamwork|analytical|work\s+ethic|communication|resilience|growth\s+mindset)\b"
+    )
+    pat_alignment = (
+        r"\b(?:aligns?\s+with|role\s+alignment|your\s+company|your\s+team|this\s+position|deliver\s+value|"
+        r"contribute\s+to|fit\s+for|drawn\s+to|excited\s+about\s+your|team\s+objectives|customer\s+features)\b"
+    )
+
+    has_skills = bool(re.search(pat_skills, t_lower))
+    has_evidence = bool(re.search(pat_evidence, t_lower))
+    has_strengths = bool(re.search(pat_strengths, t_lower))
+    has_alignment = bool(re.search(pat_alignment, t_lower))
+
+    stages = [
+        ("Skills", has_skills, "1. Skills & Technical Foundation"),
+        ("Evidence", has_evidence, "2. Project / Practical Evidence"),
+        ("Strengths", has_strengths, "3. Strengths & Problem-Solving"),
+        ("Role Alignment", has_alignment, "4. Role & Team Alignment"),
+    ]
+
+    detected = [name for name, ok, _ in stages if ok]
+    missing = [name for name, ok, _ in stages if not ok]
+    framework_stages = [(label, ok) for _, ok, label in stages]
+
+    count = len(detected)
+    if candidate_level in ["ty_student", "final_year"] and count >= 3:
+        score = 88.0 if candidate_level == "ty_student" else 85.0
+        if count == 4:
+            score = 100.0
+    else:
+        score = round((count / 4.0) * 100.0, 2)
+
+    credits = [f"{comp}: Detected (+25 pts)" for comp in detected]
+    deductions = [f"{comp}: Missing (-25 pts)" for comp in missing]
+    obs = []
+    if count == 4:
+        obs.append("Complete answer progression: Skills, Evidence, Strengths, and Role Alignment are all evidenced.")
+    elif count >= 3:
+        obs.append(f"Strong answer structure with {count} of 4 components identified. Missing: {', '.join(missing)}.")
+    else:
+        obs.append(f"Partial structure. Consider covering missing stages: {', '.join(missing)}.")
+
+    return {
+        "framework": "SkillsEvidenceStrengthsAlignment",
+        "framework_title": "Interview Answering Framework: Skills → Evidence → Strengths → Role Alignment",
+        "structure_score": score,
+        "framework_stages": framework_stages,
+        "components_detected": detected,
+        "components_missing": missing,
+        "observations": obs,
+        "credits": credits,
+        "deductions": deductions,
+        "candidate_level": candidate_level,
+    }
+
+
+def detect_definition_need_norm_std_example_structure(
+    text: Any,
+    candidate_level: str = "final_year",
+) -> Dict[str, Any]:
+    """
+    Detect structured progression for TECH005: Definition → Need → Normalization → Standardization → Example.
+    """
+    cleaned = clean_text(text)
+    if not cleaned:
+        return {
+            "framework": "DefinitionNeedNormStdExample",
+            "framework_title": "Technical Answering Framework: Definition → Need → Normalization → Standardization → Example",
+            "structure_score": 0.0,
+            "framework_stages": [
+                ("1. Concept Definition", False),
+                ("2. Need & Convergence/Distance Rationale", False),
+                ("3. Normalization (Min-Max)", False),
+                ("4. Standardization (Z-Score)", False),
+                ("5. Practical Algorithm Examples", False),
+            ],
+            "components_detected": [],
+            "components_missing": ["Definition", "Need", "Normalization", "Standardization", "Example"],
+            "observations": ["Empty response; no framework components detected."],
+            "candidate_level": candidate_level,
+        }
+
+    t_lower = cleaned.lower()
+
+    pat_def = (
+        r"\b(?:feature\s+scaling\s+is|refers\s+to|data\s+preprocessing|scaling\s+numerical\s+features|"
+        r"bringing\s+(?:numerical\s+)?features\s+to|common\s+scale|comparable\s+scale|uniform\s+scale|rescaling)\b"
+    )
+    pat_need = (
+        r"\b(?:needed\s+because|why\s+scaling\s+is\s+needed|gradient\s+descent|distance\s+metrics|"
+        r"distance\s+calculations|euclidean\s+distance|dominate\s+the\s+objective|dominate|convergence|"
+        r"slow\s+convergence|distort|large\s+magnitude|differing\s+scales)\b"
+    )
+    pat_norm = (
+        r"\b(?:normalization|min[- ]max|min\s+max|bounded\s+(?:interval|range)|0\s+to\s+1|"
+        r"between\s+0\s+and\s+1|\[0,\s*1\]|rescales\s+values|x\s*-\s*x_?min|sensitive\s+to\s+outliers)\b"
+    )
+    pat_std = (
+        r"\b(?:standardization|z[- ]score|zero\s+mean|mean\s+of\s+zero|unit\s+variance|"
+        r"standard\s+deviation\s+(?:of\s+)?(?:one|1)|\(x\s*-\s*(?:mean|mu)\)|gaussian|normal\s+distribution|robust\s+to\s+outliers)\b"
+    )
+    pat_example = (
+        r"\b(?:knn|k[- ]nearest|svm|support\s+vector|k[- ]means|neural\s+networks|logistic\s+regression|"
+        r"decision\s+trees?|random\s+forest|tree[- ]based|scale[- ]invariant|for\s+example|practical\s+example|"
+        r"algorithms?\s+(?:such\s+as|like|require))\b"
+    )
+
+    has_def = bool(re.search(pat_def, t_lower))
+    has_need = bool(re.search(pat_need, t_lower))
+    has_norm = bool(re.search(pat_norm, t_lower))
+    has_std = bool(re.search(pat_std, t_lower))
+    has_example = bool(re.search(pat_example, t_lower))
+
+    stages = [
+        ("Definition", has_def, "1. Concept Definition"),
+        ("Need", has_need, "2. Need & Convergence/Distance Rationale"),
+        ("Normalization", has_norm, "3. Normalization (Min-Max)"),
+        ("Standardization", has_std, "4. Standardization (Z-Score)"),
+        ("Example", has_example, "5. Practical Algorithm Examples"),
+    ]
+
+    detected = [name for name, ok, _ in stages if ok]
+    missing = [name for name, ok, _ in stages if not ok]
+    framework_stages = [(label, ok) for _, ok, label in stages]
+
+    count = len(detected)
+    if candidate_level in ["ty_student", "final_year"] and count >= 4:
+        score = 88.0 if candidate_level == "ty_student" else 85.0
+        if count == 5:
+            score = 100.0
+    else:
+        score = round((count / 5.0) * 100.0, 2)
+
+    credits = [f"{comp}: Detected (+20 pts)" for comp in detected]
+    deductions = [f"{comp}: Missing (-20 pts)" for comp in missing]
+    obs = []
+    if count == 5:
+        obs.append("Complete answer progression: Definition, Need, Normalization, Standardization, and Examples are all evidenced.")
+    elif count >= 4:
+        obs.append(f"Strong answer structure with {count} of 5 components identified. Missing: {', '.join(missing)}.")
+    else:
+        obs.append(f"Partial structure. Consider addressing missing stages: {', '.join(missing)}.")
+
+    return {
+        "framework": "DefinitionNeedNormStdExample",
+        "framework_title": "Technical Answering Framework: Definition → Need → Normalization → Standardization → Example",
+        "structure_score": score,
+        "framework_stages": framework_stages,
+        "components_detected": detected,
+        "components_missing": missing,
+        "observations": obs,
+        "credits": credits,
+        "deductions": deductions,
+        "candidate_level": candidate_level,
+    }
+
+
 def analyze_structure(
     candidate_answer: str,
     question_data: Dict[str, Any],
@@ -390,8 +592,9 @@ def analyze_structure(
 ) -> Dict[str, Any]:
     """
     Main entry point for answer structure analysis.
-    Dispatches to STAR analysis for behavioral questions, or general organization
-    analysis for HR and technical questions. Adapts expectations to candidate level.
+    Dispatches to STAR analysis for behavioral questions, question-specific frameworks
+    for HR005 and TECH005, or general organization analysis for other questions.
+    Adapts expectations to candidate level.
 
     Args:
         candidate_answer: Candidate's response.
@@ -404,6 +607,8 @@ def analyze_structure(
     """
     uses_star = question_data.get("uses_star_method", False)
     category = question_data.get("category", "")
+    qid = question_data.get("question_id", "")
+    framework = question_data.get("framework", "")
 
     if uses_star or category.lower() == "behavioral":
         star_res = detect_star_structure(candidate_answer, is_behavioral=True, question=question_data)
@@ -425,6 +630,10 @@ def analyze_structure(
             "observations": star_res["observations"],
             "candidate_level": candidate_level,
         }
+    elif qid == "HR005" or framework == "Skills_Evidence_Strengths_Alignment":
+        return detect_skills_evidence_strengths_alignment_structure(candidate_answer, candidate_level=candidate_level)
+    elif qid == "TECH005" or framework == "Definition_Need_Norm_Std_Example":
+        return detect_definition_need_norm_std_example_structure(candidate_answer, candidate_level=candidate_level)
     else:
         gen_res = analyze_general_structure(candidate_answer)
         return {

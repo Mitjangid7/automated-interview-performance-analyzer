@@ -227,15 +227,54 @@ def get_stt_api_credentials(explicit_key: Optional[str] = None) -> Tuple[Optiona
     return None, "none"
 
 
+def _normalize_language_metadata(raw_lang: Optional[str], text: str) -> Tuple[str, str]:
+    """
+    Resolve canonical human-readable language name and ISO 639-1 code
+    from Whisper metadata or text-based detection fallback.
+    """
+    from modules.multilingual import SUPPORTED_LANG_NAMES, detect_language
+
+    name_to_code = {v.lower(): k for k, v in SUPPORTED_LANG_NAMES.items()}
+    lang_code = "en"
+    lang_name = "English"
+
+    if raw_lang:
+        raw_clean = raw_lang.strip().lower()
+        if raw_clean in SUPPORTED_LANG_NAMES:
+            lang_code = raw_clean
+            lang_name = SUPPORTED_LANG_NAMES[raw_clean]
+        elif raw_clean in name_to_code:
+            lang_code = name_to_code[raw_clean]
+            lang_name = SUPPORTED_LANG_NAMES[lang_code]
+        else:
+            lang_name = raw_lang.strip().capitalize()
+            lang_code = raw_clean[:2]
+
+    # If language was not detected by Whisper, or if Whisper returned English but text contains non-ASCII characters:
+    if (not raw_lang or (lang_code == "en" and any(ord(c) > 127 for c in text))) and text:
+        try:
+            det = detect_language(text)
+            if det.get("status") == "detected" and det.get("language_code") != "en":
+                lang_code = det.get("language_code", "en")
+                lang_name = det.get("language_name", "English")
+        except Exception:
+            pass
+
+    return lang_name, lang_code
+
+
 def transcribe_with_whisper_api(
     audio_bytes: bytes,
     api_key: str,
     provider: str = "groq",
     filename: str = "recording.wav",
     timeout: int = 30,
+    language: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Transcribe audio using standard Whisper Cloud API (Groq Whisper or OpenAI Whisper).
+    Uses transcription mode (/v1/audio/transcriptions) with automatic language detection
+    when language is omitted. Preserves the original transcript in its native script.
     Requires a valid user-supplied API key. No hard-coded keys are used.
     """
     try:
@@ -258,7 +297,9 @@ def transcribe_with_whisper_api(
 
     headers = {"Authorization": f"Bearer {api_key.strip()}"}
     files = {"file": (filename, audio_bytes, "audio/wav" if filename.endswith(".wav") else "audio/mpeg")}
-    data = {"model": model_name, "language": "en", "response_format": "json"}
+    data = {"model": model_name, "response_format": "verbose_json"}
+    if language:
+        data["language"] = language
 
     try:
         resp = requests.post(
@@ -321,6 +362,7 @@ def transcribe_with_whisper_api(
     try:
         result_json = resp.json()
         text = result_json.get("text", "").strip()
+        raw_lang = result_json.get("language")
     except Exception as e:
         return {
             "status": "error",
@@ -336,18 +378,28 @@ def transcribe_with_whisper_api(
             "text": "",
             "warning": "The audio was processed successfully, but no audible speech was recognized.",
             "engine": engine_name,
+            "original_transcript": "",
+            "translation_applied": False,
         }
+
+    lang_name, lang_code = _normalize_language_metadata(raw_lang, text)
 
     return {
         "status": "success",
         "text": text,
         "engine": engine_name,
+        "language": lang_name,
+        "language_code": lang_code,
+        "original_transcript": text,
+        "translation_applied": False,
+        "duration": result_json.get("duration", 0.0),
     }
 
 
 def _transcribe_with_whisper_local(
     temp_path: str,
     model_size: str = "small",
+    language: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Transcribe audio file on disk using local faster-whisper when available."""
     model = get_whisper_model(model_size=model_size)
@@ -357,18 +409,23 @@ def _transcribe_with_whisper_local(
     segments, info = model.transcribe(
         temp_path,
         beam_size=5,
-        language="en",
+        language=language,
         condition_on_previous_text=False,
     )
 
     recognized_chunks = [segment.text.strip() for segment in segments if segment.text.strip()]
     full_text = " ".join(recognized_chunks)
+    raw_lang = getattr(info, "language", None)
+    lang_name, lang_code = _normalize_language_metadata(raw_lang, full_text)
 
     return {
         "status": "success",
         "text": full_text,
         "engine": f"faster-whisper Local CPU ({model_size})",
-        "language": getattr(info, "language", "en"),
+        "language": lang_name,
+        "language_code": lang_code,
+        "original_transcript": full_text,
+        "translation_applied": False,
         "language_probability": getattr(info, "language_probability", 1.0),
         "duration": getattr(info, "duration", 0.0),
     }
@@ -379,6 +436,7 @@ def transcribe_audio_payload(
     filename: Optional[str] = None,
     api_key: Optional[str] = None,
     model_size: str = "small",
+    language: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Main entry point for audio transcription.
@@ -441,7 +499,7 @@ def transcribe_audio_payload(
             temp_path = tf.name
 
         try:
-            res = _transcribe_with_whisper_local(temp_path, model_size=model_size)
+            res = _transcribe_with_whisper_local(temp_path, model_size=model_size, language=language)
             res["debug_info"] = debug_info
             return res
         except Exception as e:
@@ -463,6 +521,7 @@ def transcribe_audio_payload(
             api_key=resolved_key,
             provider=provider,
             filename=filename or "recording.wav",
+            language=language,
         )
         res["debug_info"] = debug_info
         return res

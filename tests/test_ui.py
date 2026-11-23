@@ -341,6 +341,89 @@ class TestTranscriptPopulationAndWidgetState:
         assert at.text_area[0].value == "Transcribed speech with additional edits."
 
 
+class TestRenderResultsRegression:
+    """Regression tests ensuring render_results never crashes with UnboundLocalError or missing metadata."""
+
+    @staticmethod
+    def _create_mock_streamlit():
+        from unittest.mock import MagicMock
+        st_mock = MagicMock()
+        st_mock.session_state = {}
+        st_mock.tabs.return_value = [MagicMock() for _ in range(5)]
+        st_mock.columns.side_effect = lambda spec: [MagicMock() for _ in range(spec if isinstance(spec, int) else len(spec))]
+        st_mock.button.return_value = False
+        return st_mock
+
+    @staticmethod
+    def _create_base_evaluation():
+        return {
+            "question_id": "TECH001",
+            "question": "What is the difference between list and tuple?",
+            "candidate_answer": "Lists are mutable while tuples are immutable in Python.",
+            "overall_score": 88.0,
+            "performance_category": "Good",
+            "component_scores": {"semantic": 85.0, "structure": 90.0, "communication": 88.0, "delivery": 85.0},
+            "weighted_contributions": {"semantic": 34.0, "structure": 22.5, "communication": 17.6, "delivery": 12.75},
+            "semantic_analysis": {
+                "composite_semantic_score": 85.0,
+                "semantic_similarity": {"similarity_percentage": 82.0},
+                "keypoint_coverage": {"coverage_percentage": 88.0},
+            },
+        }
+
+    def test_render_results_english_without_multilingual_metadata(self):
+        """English result without multilingual_analysis key renders cleanly without UnboundLocalError."""
+        from ui.results import render_results
+
+        st_mock = self._create_mock_streamlit()
+        eval_data = self._create_base_evaluation()
+        q_data = {"question_id": "TECH001", "reference_answer": "Lists are mutable sequences in Python..."}
+
+        # Must not raise UnboundLocalError: cannot access local variable 'ml_data'
+        render_results(st_mock, eval_data, q_data)
+
+    def test_render_results_non_english_with_translation_metadata(self):
+        """Non-English result with translation_used=True correctly evaluates and renders."""
+        from ui.results import render_results
+
+        st_mock = self._create_mock_streamlit()
+        eval_data = self._create_base_evaluation()
+        eval_data["multilingual_analysis"] = {
+            "translation_used": True,
+            "detected_language": "Hindi",
+            "language_code": "hi",
+            "evaluation_text": "Lists are mutable while tuples are immutable in Python.",
+            "original_text": "पायथन में सूचियां परिवर्तनीय हैं।",
+            "processing_status": "translated",
+        }
+        q_data = {"question_id": "TECH001", "reference_answer": "Lists are mutable sequences in Python..."}
+
+        render_results(st_mock, eval_data, q_data)
+
+    def test_render_results_none_multilingual_metadata(self):
+        """Result with multilingual_analysis=None never raises UnboundLocalError or AttributeError."""
+        from ui.results import render_results
+
+        st_mock = self._create_mock_streamlit()
+        eval_data = self._create_base_evaluation()
+        eval_data["multilingual_analysis"] = None
+        q_data = {"question_id": "TECH001", "reference_answer": "Lists are mutable sequences in Python..."}
+
+        render_results(st_mock, eval_data, q_data)
+
+    def test_render_results_empty_multilingual_metadata(self):
+        """Result with multilingual_analysis={} renders without issues."""
+        from ui.results import render_results
+
+        st_mock = self._create_mock_streamlit()
+        eval_data = self._create_base_evaluation()
+        eval_data["multilingual_analysis"] = {}
+        q_data = {"question_id": "TECH001", "reference_answer": "Lists are mutable sequences in Python..."}
+
+        render_results(st_mock, eval_data, q_data)
+
+
+
 
 
 

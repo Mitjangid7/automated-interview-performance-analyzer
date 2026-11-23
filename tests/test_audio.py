@@ -125,3 +125,86 @@ def test_transcribe_audio_credentials_required(monkeypatch):
     assert "API key" in result["error"]
     assert "debug_info" in result
     assert result["debug_info"]["channels"] == 1
+
+
+def test_transcribe_whisper_api_automatic_language_detection(monkeypatch):
+    """Verify that transcription does not force 'language': 'en', allowing automatic language detection."""
+    import modules.audio_transcription as at
+
+    sent_data = {}
+
+    class MockResponse:
+        status_code = 200
+        def json(self):
+            return {"text": "नमस्ते, मैं एक सॉफ्टवेयर इंजीनियर हूँ।", "language": "hindi"}
+
+    def mock_post(url, headers=None, files=None, data=None, verify=True, timeout=30):
+        sent_data.update(data or {})
+        return MockResponse()
+
+    import requests
+    monkeypatch.setattr(requests, "post", mock_post)
+
+    wav_bytes = _make_dummy_wav(0.2)
+    res = at.transcribe_with_whisper_api(wav_bytes, api_key="gsk_dummy", provider="groq")
+    assert res["status"] == "success"
+    assert "नमस्ते" in res["text"]
+    assert "language" not in sent_data, "Automatic detection must omit 'language' to avoid forcing English"
+    assert sent_data.get("response_format") == "verbose_json", "Must request verbose_json to receive language metadata"
+    assert res.get("language").lower() == "hindi"
+    assert res.get("language_code") == "hi"
+    assert res.get("original_transcript") == res["text"]
+    assert res.get("translation_applied") is False
+
+
+def test_transcribe_whisper_api_explicit_language_override(monkeypatch):
+    """Verify that when language is explicitly passed, it is respected in the API request."""
+    import modules.audio_transcription as at
+
+    sent_data = {}
+
+    class MockResponse:
+        status_code = 200
+        def json(self):
+            return {"text": "Hello world", "language": "english"}
+
+    def mock_post(url, headers=None, files=None, data=None, verify=True, timeout=30):
+        sent_data.update(data or {})
+        return MockResponse()
+
+    import requests
+    monkeypatch.setattr(requests, "post", mock_post)
+
+    wav_bytes = _make_dummy_wav(0.2)
+    res = at.transcribe_with_whisper_api(wav_bytes, api_key="gsk_dummy", provider="groq", language="en")
+    assert res["status"] == "success"
+    assert sent_data.get("language") == "en"
+    assert res.get("language").lower() == "english"
+    assert res.get("language_code") == "en"
+
+
+def test_real_hindi_audio_transcription_live():
+    """Live integration test: Transcribe real Hindi speech file and verify native Devanagari script output."""
+    import os
+    import modules.audio_transcription as at
+
+    key, provider = at.get_stt_api_credentials()
+    audio_file = "tests/fixtures/hindi_test.mp3" if os.path.exists("tests/fixtures/hindi_test.mp3") else "hindi_test.mp3"
+    if not key or not os.path.exists(audio_file):
+        import pytest
+        pytest.skip("Groq API key or hindi_test.mp3 not available for live audio test.")
+
+    with open(audio_file, "rb") as f:
+        audio_bytes = f.read()
+
+    res = at.transcribe_audio_payload(audio_bytes, filename=os.path.basename(audio_file), api_key=key)
+    assert res["status"] == "success"
+    assert res["language"] == "Hindi"
+    assert res["language_code"] == "hi"
+    assert res["translation_applied"] is False
+    # Verify transcript is genuinely in Devanagari Hindi script, not English
+    text = res["text"]
+    assert any("\u0900" <= c <= "\u097F" for c in text), f"Transcript must contain Hindi Devanagari characters: {text}"
+    assert "प्रोजेक्ट" in text or "डेटाबेस" in text or "नमस्ते" in text
+
+

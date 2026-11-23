@@ -1,0 +1,59 @@
+{
+  "scoring_engine_benchmark": {
+    "n_samples": 25,
+    "spearman_rho": 0.6783,
+    "spearman_pvalue": 0.00019425539289561275,
+    "pearson_r": 0.6081,
+    "pearson_pvalue": 0.0012618938717210864,
+    "mae_5pt_scale": 1.2998,
+    "rmse_5pt_scale": 1.6468,
+    "semantic_rho": 0.6966,
+    "communication_rho": -0.0451,
+    "structure_rho": 0.1722
+  },
+  "vader_sentiment_benchmark": {
+    "n_eval_sentences": 60,
+    "accuracy": 0.85,
+    "macro_precision": 0.8599,
+    "macro_recall": 0.85,
+    "macro_f1": 0.8473,
+    "weighted_f1": 0.8473,
+    "confusion_matrix": [
+      [
+        18,
+        1,
+        1
+      ],
+      [
+        4,
+        14,
+        2
+      ],
+      [
+        1,
+        0,
+        19
+      ]
+    ],
+    "per_class": {
+      "Positive": {
+        "precision": 0.7826,
+        "recall": 0.9,
+        "f1_score": 0.8372,
+        "support": 20
+      },
+      "Neutral": {
+        "precision": 0.9333,
+        "recall": 0.7,
+        "f1_score": 0.8,
+        "support": 20
+      },
+      "Negative": {
+        "precision": 0.8636,
+        "recall": 0.95,
+        "f1_score": 0.9048,
+        "support": 20
+      }
+    }
+  }
+}

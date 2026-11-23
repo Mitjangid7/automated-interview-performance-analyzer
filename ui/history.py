@@ -97,6 +97,12 @@ def save_evaluation_to_history(
         "communication_analysis": evaluation_result.get("communication_analysis", {}),
         "delivery_analysis": evaluation_result.get("delivery_analysis", {}),
         "structure_analysis": evaluation_result.get("structure_analysis", {}),
+        "sentiment_analysis": evaluation_result.get("sentiment_analysis", {}),
+        "information_extraction": evaluation_result.get("information_extraction", {}),
+        "multilingual_analysis": evaluation_result.get("multilingual_analysis", {}),
+        "entities_and_skills": evaluation_result.get("entities_and_skills", {}),
+        "emotion_analysis": evaluation_result.get("emotion_analysis", {}),
+        "topic_analysis": evaluation_result.get("topic_analysis", {}),
         "feedback": evaluation_result.get("feedback", {}),
     }
 
